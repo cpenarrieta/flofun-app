@@ -1,58 +1,40 @@
-import Expo from 'expo';
+import Expo, { Components } from 'expo';
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ActivityIndicator,
-} from 'react-native'
-import { fetchFlowers } from './constants/api'
+import EStyleSheet from 'react-native-extended-stylesheet'
+import Colors from './constants/colors'
+import { HomeScreen } from './src/screens'
+import { cachedFonts } from './helpers'
+
+EStyleSheet.build(Colors)
 
 class App extends React.Component {
-  static defaultProps = {
-    fetchFlowers
-  }
-
   state = {
-    loading: false,
-    flowers: []
+    fontLoaded: false
   }
 
-  async componentDidMount() {
-    this.setState({ loading: true })
-    const data = await this.props.fetchFlowers()
-    setTimeout(() => this.setState({ loading: false, flowers: data.flowers }), 2000)
+  componentDidMount() {
+    this.loadAssets()
+  }
+
+  async loadAssets() {
+    const fontAssets = cachedFonts([
+      { montserrat: require('./assets/fonts/Montserrat-Regular.ttf') },
+      { montserratBold: require('./assets/fonts/Montserrat-Bold.ttf') },
+      { montserratLight: require('./assets/fonts/Montserrat-Light.ttf') },
+      { montserratMedium: require('./assets/fonts/Montserrat-Medium.ttf') }
+    ])
+
+    await Promise.all(fontAssets)
+
+    this.setState({ fontLoaded: true })
   }
 
   render() {
-    if (this.state.loading) {
-      return (
-        <View style={styles.container}>
-          <ActivityIndicator size="large"></ActivityIndicator>
-        </View>
-      )
+    if (!this.state.fontLoaded) {
+      return <Components.AppLoading />
     }
-
-    return (
-      <View style={styles.container}>
-        <Text>FloFun</Text>
-        {
-          this.state.flowers.map((flower, i) => 
-            <Text key={i}>{flower.title}</Text>
-          )
-        }
-      </View>
-    )
+    return <HomeScreen />
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
 
 Expo.registerRootComponent(App)
