@@ -9,7 +9,7 @@ const FlowerList = ({ flowers }) => (
       <Text style={styles.title}>My Flowers</Text>
     </View>
     <View style={styles.contentContainer}>
-      <ScrollView horizontal>
+      <ScrollView vertical>
         {flowers.map((flower, i) => (
           <View key={i} style={styles.flowerCard}>
             <FlowerItem flower={flower} />

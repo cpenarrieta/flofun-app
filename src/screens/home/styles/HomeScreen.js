@@ -10,11 +10,12 @@ const styles = EStyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'yellow',
-    marginTop: '10%',
+    backgroundColor: '$blackBackground',
+    marginTop: '3%',
   },
   bottomContainer: {
-    flex: 0.2,
+    flex: 0.1,
+    marginTop: '3%',
     backgroundColor: 'peru'
   }
 })
