@@ -4,8 +4,6 @@ const styles = EStyleSheet.create({
   root: {
     flex: 1,
   },
-  title: {
-  },
   flowerCard: {
   }
 })

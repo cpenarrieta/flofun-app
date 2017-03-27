@@ -6,11 +6,13 @@ const FlowerItem = ({ flower }) => (
   <TouchableWithoutFeedback onPress={() => { console.log(flower.title) }}>
     <View style={styles.root}>
       <Image
-        source={{ uri: 'https://facebook.github.io/react/img/logo_og.png' }}
+        source={{ uri: flower.image }}
         style={styles.image}
       />
-      <Text>{flower.title}</Text>
-      <Text>{flower.price}</Text>
+      <View style={styles.flowerDesc}>
+        <Text>{flower.title}</Text>
+        <Text>S./ {flower.price}</Text>
+      </View>
     </View>
   </TouchableWithoutFeedback>
 )

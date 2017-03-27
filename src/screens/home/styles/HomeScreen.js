@@ -6,17 +6,27 @@ const styles = EStyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '$blackBackground'
   },
-  topContainer: {
+  contentContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '$blackBackground',
-    marginTop: '3%',
   },
   bottomContainer: {
     flex: 0.1,
-    marginTop: '3%',
-    backgroundColor: 'peru'
+    backgroundColor: '$bottomColor'
+  },
+  headerContainer: {
+    flex: 0.1,
+    backgroundColor: '$headerColor',
+    justifyContent: 'center'
+  },
+  title: {
+    fontSize: 20,
+    fontFamily: 'montserratBold',
+    color: '$whiteColor',
+    textAlign: 'center',
+    marginTop: 15
   }
 })
 

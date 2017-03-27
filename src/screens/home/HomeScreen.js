@@ -28,7 +28,10 @@ class HomeScreen extends Component {
 
     return (
       <View style={styles.root}>
-        <View style={styles.topContainer}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.title}>flofun</Text>
+        </View>
+        <View style={styles.contentContainer}>
           <FlowerList flowers={this.state.flowers} />
         </View>
         <View style={styles.bottomContainer}>

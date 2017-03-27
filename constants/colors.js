@@ -1,5 +1,8 @@
 export default {
   blackColor: 'black',
   whiteColor: '#fff',
-  blackBackground: '#384259'
+  blackBackground: '#DDDDDD',
+  bottomColor: '#4B586E',
+  flowerDesColor: '#574E6D',
+  headerColor: '#43405D'
 }

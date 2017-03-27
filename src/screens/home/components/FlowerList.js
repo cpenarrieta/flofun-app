@@ -1,13 +1,10 @@
 import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import styles from './styles/FlowerList'
 import FlowerItem from './FlowerItem'
 
 const FlowerList = ({ flowers }) => (
   <View style={styles.root}>
-    <View style={styles.titleContainer}>
-      <Text style={styles.title}>My Flowers</Text>
-    </View>
     <View style={styles.contentContainer}>
       <ScrollView vertical>
         {flowers.map((flower, i) => (
