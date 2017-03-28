@@ -6,15 +6,8 @@ const styles = EStyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '$grayBackground'
   },
-  contentContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '$grayBackground',
-  },
-  bottomContainer: {
-    flex: 0.1,
-    backgroundColor: '$bottomColor'
+  content: {
+    flex: 0.9,
   }
 })
 

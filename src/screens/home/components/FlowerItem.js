@@ -10,8 +10,8 @@ const FlowerItem = ({ flower }) => (
         style={styles.image}
       />
       <View style={styles.flowerDesc}>
-        <Text>{flower.title}</Text>
-        <Text>S./ {flower.price}</Text>
+        <Text style={styles.title} >{flower.title}</Text>
+        <Text style={styles.price}>S./ {flower.price}</Text>
       </View>
     </View>
   </TouchableWithoutFeedback>

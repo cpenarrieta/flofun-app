@@ -13,7 +13,19 @@ const styles = EStyleSheet.create({
     width: 200
   },
   flowerDesc: {
-    flex: 0.4
+    flex: 0.4,
+    marginLeft: 5,
+    marginTop: 5
+  },
+  title: {
+    fontSize: 16,
+    fontFamily: 'montserrat',
+    color: '$whiteColor'
+  },
+  price: {
+    fontSize: 16,
+    fontFamily: 'montserrat',
+    color: '$whiteColor'
   }
 })
 
