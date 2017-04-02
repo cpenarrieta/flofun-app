@@ -1,10 +1,14 @@
 {
   "name": "flofun-app",
   "version": "0.0.0",
-  "description": "Hello Expo!",
-  "author": null,
+  "description": "Flofun app",
+  "author": "Cristian Penarrieta",
   "private": true,
   "main": "main.js",
+  "scripts": {
+    "postinstall": "rndebugger-open",
+    "clean": "rm -rf node_modules"
+  },
   "dependencies": {
     "@expo/vector-icons": "~4.0.0",
     "axios": "^0.15.3",
@@ -15,6 +19,7 @@
     "react-navigation": "^1.0.0-beta.7"
   },
   "devDependencies": {
-    "eslint-config-equimper": "^1.4.0"
+    "eslint-config-equimper": "^1.4.0",
+    "react-native-debugger-open": "^0.3.3"
   }
 }
