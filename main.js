@@ -1,4 +1,4 @@
-import Expo, { Components } from 'expo'
+import Expo from 'expo'
 import React from 'react'
 import { Provider } from 'react-redux'
 import EStyleSheet from 'react-native-extended-stylesheet'
@@ -12,7 +12,7 @@ EStyleSheet.build(Colors)
 
 class App extends React.Component {
   state = {
-    fontLoaded: false
+    fontLoaded: false,
   }
 
   componentDidMount() {
@@ -34,7 +34,7 @@ class App extends React.Component {
 
   render() {
     if (!this.state.fontLoaded) {
-      return <Components.AppLoading />
+      return <Expo.AppLoading />
     }
     return (
       <Provider store={store}>
