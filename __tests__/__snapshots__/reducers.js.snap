@@ -29,6 +29,19 @@ Object {
 }
 `;
 
+exports[`Home Reducer should return the error state if rejected 1`] = `
+Object {
+  "flowers": Object {
+    "data": Array [],
+    "error": Object {
+      "message": "Error when fetching flowers",
+      "on": true,
+    },
+    "isFetched": true,
+  },
+}
+`;
+
 exports[`Home Reducer should return the initial if pending 1`] = `
 Object {
   "flowers": Object {
