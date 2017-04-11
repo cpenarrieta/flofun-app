@@ -1,6 +1,6 @@
 {
   "name": "flofun-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Flofun app",
   "author": "Cristian Penarrieta",
   "private": true,
@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "rndebugger-open",
     "clean": "rm -rf node_modules",
-    "test": "jest --coverage"
+    "test": "jest && codecov"
   },
   "dependencies": {
     "@expo/vector-icons": "~4.0.0",
@@ -29,7 +29,8 @@
     "react-native-debugger-open": "^0.3.4",
     "redux-logger": "^3.0.1",
     "jest": "*",
-    "react-test-renderer": "*"
+    "react-test-renderer": "*",
+    "codecov": "*"
   },
   "jest": {
     "preset": "react-native",
