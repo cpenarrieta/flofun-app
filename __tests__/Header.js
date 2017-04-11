@@ -11,10 +11,10 @@ beforeAll(() => { // eslint-disable-line
 
 describe('Header', () => {
   test('renders correctly', () => {
-    const loading = renderer.create(
+    const header = renderer.create(
       <Header title='foo test' />
     ).toJSON()
 
-    expect(loading).toMatchSnapshot()
+    expect(header).toMatchSnapshot()
   })
 })
