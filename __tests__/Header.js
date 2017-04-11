@@ -7,7 +7,7 @@ import { Header } from '../src/commons'
 
 beforeAll(() => { // eslint-disable-line
   EStyleSheet.build(Colors)
-});
+})
 
 describe('Header', () => {
   test('renders correctly', () => {
