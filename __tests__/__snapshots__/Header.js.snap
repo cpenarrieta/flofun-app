@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#43405D",
+      "flex": 0.1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#fff",
+        "fontFamily": "montserratBold",
+        "fontSize": 20,
+        "textAlign": "center",
+      }
+    }
+  >
+    foo test
+  </Text>
+</View>
+`;
