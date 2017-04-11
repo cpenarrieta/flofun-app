@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Reducer should fill the data if fullfiled 1`] = `
+Object {
+  "flowers": Object {
+    "data": Array [
+      Object {
+        "image": "img1",
+        "price": 30,
+        "title": "flower 1",
+      },
+      Object {
+        "image": "img2",
+        "price": 40,
+        "title": "flower 2",
+      },
+      Object {
+        "image": "img3",
+        "price": 50,
+        "title": "flower 3",
+      },
+    ],
+    "error": Object {
+      "message": null,
+      "on": false,
+    },
+    "isFetched": true,
+  },
+}
+`;
+
+exports[`Home Reducer should return the initial if pending 1`] = `
+Object {
+  "flowers": Object {
+    "data": Array [],
+    "error": Object {
+      "message": null,
+      "on": false,
+    },
+    "isFetched": false,
+  },
+}
+`;
+
+exports[`Home Reducer should return the initial state 1`] = `
+Object {
+  "flowers": Object {
+    "data": Array [],
+    "error": Object {
+      "message": null,
+      "on": false,
+    },
+    "isFetched": false,
+  },
+}
+`;
