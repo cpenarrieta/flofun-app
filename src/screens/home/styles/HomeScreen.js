@@ -4,7 +4,7 @@ const styles = EStyleSheet.create({
   root: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '$grayBackground'
+    backgroundColor: '$grayBackground',
   },
   contentContainer: {
     flex: 1,
@@ -14,8 +14,8 @@ const styles = EStyleSheet.create({
   },
   bottomContainer: {
     flex: 0.1,
-    backgroundColor: '$bottomColor'
-  }
+    backgroundColor: '$bottomColor',
+  },
 })
 
 export default styles

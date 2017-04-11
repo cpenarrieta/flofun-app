@@ -6,27 +6,27 @@ const styles = EStyleSheet.create({
     height: 160,
     marginTop: '1.5%',
     backgroundColor: '$flowerDesColor',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   image: {
     flex: 1,
-    width: 200
+    width: 200,
   },
   flowerDesc: {
     flex: 0.4,
     marginLeft: 5,
-    marginTop: 5
+    marginTop: 5,
   },
   title: {
     fontSize: 16,
     fontFamily: 'montserrat',
-    color: '$whiteColor'
+    color: '$whiteColor',
   },
   price: {
     fontSize: 16,
     fontFamily: 'montserrat',
-    color: '$whiteColor'
-  }
+    color: '$whiteColor',
+  },
 })
 
 export default styles

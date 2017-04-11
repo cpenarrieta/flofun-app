@@ -5,7 +5,7 @@ const styles = EStyleSheet.create({
     flex: 1,
   },
   flowerCard: {
-  }
+  },
 })
 
 export default styles

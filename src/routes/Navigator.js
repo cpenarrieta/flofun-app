@@ -2,10 +2,10 @@ import { DrawerNavigator } from 'react-navigation'
 import HomeNavigator from './HomeNavigator'
 
 import {
-  ProfileScreen
+  ProfileScreen,
 } from '../screens'
 
 export default DrawerNavigator({
   Home: { screen: HomeNavigator },
-  Profile: { screen: ProfileScreen }
+  Profile: { screen: ProfileScreen },
 })

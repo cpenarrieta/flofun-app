@@ -7,7 +7,7 @@ import reducers from './reducers'
 
 const middlewares = [
   promiseMiddleware(),
-  thunk
+  thunk,
 ]
 
 if (__DEV__) { // eslint-disable-line

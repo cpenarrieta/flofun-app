@@ -4,11 +4,11 @@ const styles = EStyleSheet.create({
   root: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '$grayBackground'
+    backgroundColor: '$grayBackground',
   },
   content: {
     flex: 0.9,
-  }
+  },
 })
 
 export default styles

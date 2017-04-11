@@ -7,7 +7,7 @@ const ProfileScreen = () => (
   <View style={styles.root}>
     <Header title={'Profile'} />
     <View style={styles.content}>
-      <Text>Profile page</Text>
+      <Text style={{ color: 'red', backgroundColor: 'blue' }}>Profile page</Text>
     </View>
   </View>
 )

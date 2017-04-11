@@ -7,14 +7,16 @@
   "main": "main.js",
   "scripts": {
     "postinstall": "rndebugger-open",
-    "clean": "rm -rf node_modules"
+    "clean": "rm -rf node_modules",
+    "test": "jest --coverage"
   },
   "dependencies": {
     "@expo/vector-icons": "~4.0.0",
+    "axios": "^0.16.0",
     "expo": "^15.0.2",
     "react": "~15.4.0",
     "react-native": "https://github.com/exponent/react-native/archive/sdk-15.0.0.tar.gz",
-    "axios": "^0.16.0",
+    "react-native-elements": "^0.10.3",
     "react-native-extended-stylesheet": "^0.3.2",
     "react-navigation": "^1.0.0-beta.7",
     "react-redux": "^5.0.3",
@@ -25,6 +27,14 @@
   "devDependencies": {
     "eslint-config-equimper": "^1.6.0",
     "react-native-debugger-open": "^0.3.4",
-    "redux-logger": "^3.0.1"
+    "redux-logger": "^3.0.1",
+    "jest": "*",
+    "react-test-renderer": "*"
+  },
+  "jest": {
+    "preset": "react-native",
+    "coverageDirectory": "./coverage/",
+    "collectCoverageFrom" : ["src/**/*.js"],
+    "collectCoverage": true
   }
 }

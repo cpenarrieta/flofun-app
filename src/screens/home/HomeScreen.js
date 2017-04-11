@@ -10,7 +10,7 @@ import { fetchAvailableFlowers } from './actions'
 
 @connect(
   state => ({
-    flowers: state.home.flowers
+    flowers: state.home.flowers,
   }),
   { fetchAvailableFlowers }
 )
@@ -19,15 +19,15 @@ class HomeScreen extends Component {
     title: 'flofun',
     header: {
       style: {
-        backgroundColor: Colors.headerColor
+        backgroundColor: Colors.headerColor,
       },
       titleStyle: {
         fontSize: 20,
         fontFamily: 'montserratBold',
         color: Colors.whiteColor,
-        textAlign: 'center'
-      }
-    }
+        textAlign: 'center',
+      },
+    },
   }
 
   componentDidMount() {
@@ -39,8 +39,8 @@ class HomeScreen extends Component {
       flowers: {
         data,
         isFetched,
-        error
-      }
+        error,
+      },
     } = this.props
 
     if (!isFetched) {

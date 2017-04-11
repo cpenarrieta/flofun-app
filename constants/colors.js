@@ -4,5 +4,5 @@ export default {
   grayBackground: '#DDDDDD',
   bottomColor: '#4B586E',
   flowerDesColor: '#574E6D',
-  headerColor: '#43405D'
+  headerColor: '#43405D',
 }

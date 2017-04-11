@@ -1,5 +1,5 @@
 import {
-  FETCH_FLOWERS
+  FETCH_FLOWERS,
 } from './actions'
 
 const INITIAL_STATE = {
@@ -9,8 +9,8 @@ const INITIAL_STATE = {
     error: {
       on: false,
       message: null,
-    }
-  }
+    },
+  },
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -25,8 +25,8 @@ export default (state = INITIAL_STATE, action) => {
           error: {
             on: false,
             message: null,
-          }
-        }
+          },
+        },
       }
     case `${FETCH_FLOWERS}_REJECT`:
       return {
@@ -36,8 +36,8 @@ export default (state = INITIAL_STATE, action) => {
           error: {
             on: true,
             message: 'Error when fetching flowers',
-          }
-        }
+          },
+        },
       }
     default:
       return state

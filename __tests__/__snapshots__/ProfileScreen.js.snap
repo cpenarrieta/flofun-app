@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileScreen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#DDDDDD",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#43405D",
+        "flex": 0.1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#fff",
+          "fontFamily": "montserratBold",
+          "fontSize": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Profile
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 0.9,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "backgroundColor": "blue",
+          "color": "red",
+        }
+      }
+    >
+      Profile page
+    </Text>
+  </View>
+</View>
+`;
