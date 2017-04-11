@@ -7,6 +7,6 @@ export const fetchFlowers = async () => {
     const { data } = await axios.get(`${API_URL}/flower`)
     return data.flowers
   } catch (error) {
-    console.error(error)
+    console.error(error) // eslint-disable-line
   }
 }
