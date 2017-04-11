@@ -3,18 +3,18 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Colors from '../constants/colors'
-import { ProfileScreen } from '../src/screens/profile'
+import { Header } from '../src/commons'
 
 beforeAll(() => { // eslint-disable-line
   EStyleSheet.build(Colors)
 })
 
-describe('ProfileScreen', () => {
+describe('Header', () => {
   test('renders correctly', () => {
-    const profile = renderer.create(
-      <ProfileScreen />
+    const loading = renderer.create(
+      <Header title='foo test' />
     ).toJSON()
 
-    expect(profile).toMatchSnapshot()
+    expect(loading).toMatchSnapshot()
   })
 })

@@ -7,7 +7,7 @@ import { LoadingScreen } from '../src/commons'
 
 beforeAll(() => { // eslint-disable-line
   EStyleSheet.build(Colors)
-});
+})
 
 describe('LoadingScreen', () => {
   test('renders correctly', () => {
