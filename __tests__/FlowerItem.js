@@ -1,17 +1,18 @@
 import 'react-native'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Colors from '../constants/colors'
 import FlowerItem from '../src/screens/home/components/FlowerItem'
 
-beforeAll(() => { // eslint-disable-line
+beforeAll(() => {
   EStyleSheet.build(Colors)
 })
 
 describe('FlowerItem', () => {
   test('renders correctly', () => {
-    const flower = renderer.create(
+    const flower = shallow(
       <FlowerItem
         flower={{
           title: 'foo flower',
@@ -19,8 +20,25 @@ describe('FlowerItem', () => {
           price: 32.00,
         }}
       />
-    ).toJSON()
+    )
 
-    expect(flower).toMatchSnapshot()
+    expect(toJson(flower)).toMatchSnapshot()
   })
+
+  test('should have onPress event', () => {
+    const onPress = jest.fn();
+    const flower = shallow(
+      <FlowerItem
+        onPress={onPress}
+        flower={{
+          title: 'foo flower',
+          image: 'https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg',
+          price: 32.00,
+        }}
+      />
+    );
+
+    flower.simulate('press');
+    expect(onPress).toHaveBeenCalled();
+  });
 })

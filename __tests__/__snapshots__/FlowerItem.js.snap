@@ -1,81 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FlowerItem renders correctly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
-  accessible={true}
-  hitSlop={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "backgroundColor": "#574E6D",
-      "flexDirection": "row",
-      "height": 160,
-      "marginTop": 13.34,
-      "width": 712.5,
-    }
-  }
-  testID={undefined}
->
-  <Image
-    source={
-      Object {
-        "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
-      }
-    }
-    style={
-      Object {
-        "flex": 1,
-        "width": 200,
-      }
-    }
-  />
+<TouchableWithoutFeedback>
   <View
     style={
       Object {
-        "flex": 0.4,
-        "marginLeft": 5,
-        "marginTop": 5,
+        "backgroundColor": "#574E6D",
+        "flexDirection": "row",
+        "height": 160,
+        "marginTop": 13.34,
+        "width": 712.5,
       }
     }
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
+    <Image
+      source={
+        Object {
+          "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
+        }
+      }
       style={
         Object {
-          "color": "#fff",
-          "fontFamily": "montserrat",
-          "fontSize": 16,
+          "flex": 1,
+          "width": 200,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 0.4,
+          "marginLeft": 5,
+          "marginTop": 5,
         }
       }
     >
-      foo flower
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#fff",
-          "fontFamily": "montserrat",
-          "fontSize": 16,
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#fff",
+            "fontFamily": "montserrat",
+            "fontSize": 16,
+          }
         }
-      }
-    >
-      S./ 
-      32
-    </Text>
+      >
+        foo flower
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#fff",
+            "fontFamily": "montserrat",
+            "fontSize": 16,
+          }
+        }
+      >
+        S./ 
+        32
+      </Text>
+    </View>
   </View>
-</View>
+</TouchableWithoutFeedback>
 `;

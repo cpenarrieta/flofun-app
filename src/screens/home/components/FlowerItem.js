@@ -2,8 +2,8 @@ import React from 'react'
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
 import styles from './styles/FlowerItem'
 
-const FlowerItem = ({ flower }) => (
-  <TouchableWithoutFeedback onPress={() => { console.log(flower.title) }}>
+const FlowerItem = ({ flower, onPress }) => (
+  <TouchableWithoutFeedback onPress={onPress}>
     <View style={styles.root}>
       <Image
         source={{ uri: flower.image }}

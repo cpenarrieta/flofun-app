@@ -1,20 +1,21 @@
 import 'react-native'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Colors from '../constants/colors'
 import { Header } from '../src/commons'
 
-beforeAll(() => { // eslint-disable-line
+beforeAll(() => {
   EStyleSheet.build(Colors)
 })
 
 describe('Header', () => {
   test('renders correctly', () => {
-    const header = renderer.create(
+    const header = shallow(
       <Header title='foo test' />
-    ).toJSON()
+    )
 
-    expect(header).toMatchSnapshot()
+    expect(toJson(header)).toMatchSnapshot()
   })
 })

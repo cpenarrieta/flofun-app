@@ -2,5 +2,8 @@
   "extends": "equimper",
   "rules": {
     "semi": "off"
+  },
+  "env": {
+    "jest": true
   }
 }

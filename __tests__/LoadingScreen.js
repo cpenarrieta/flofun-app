@@ -1,20 +1,21 @@
 import 'react-native'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Colors from '../constants/colors'
 import { LoadingScreen } from '../src/commons'
 
-beforeAll(() => { // eslint-disable-line
+beforeAll(() => {
   EStyleSheet.build(Colors)
 })
 
 describe('LoadingScreen', () => {
   test('renders correctly', () => {
-    const loading = renderer.create(
+    const loading = shallow(
       <LoadingScreen />
-    ).toJSON()
+    )
 
-    expect(loading).toMatchSnapshot()
+    expect(toJson(loading)).toMatchSnapshot()
   })
 })

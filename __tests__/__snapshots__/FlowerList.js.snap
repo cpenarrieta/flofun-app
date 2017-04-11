@@ -8,258 +8,50 @@ exports[`FlowerList renders correctly 1`] = `
     }
   }
 >
-  <View
-    style={undefined}
-  >
-    <RCTScrollView
+  <View>
+    <ScrollViewMock
       vertical={true}
     >
-      <View>
-        <View
-          style={Object {}}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "backgroundColor": "#574E6D",
-                "flexDirection": "row",
-                "height": 160,
-                "marginTop": 13.34,
-                "width": 712.5,
-              }
+      <View
+        style={Object {}}
+      >
+        <FlowerItem
+          flower={
+            Object {
+              "image": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
+              "price": 10.9,
+              "title": "flower 1",
             }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
-                }
-              }
-              style={
-                Object {
-                  "flex": 1,
-                  "width": 200,
-                }
-              }
-            />
-            <View
-              style={
-                Object {
-                  "flex": 0.4,
-                  "marginLeft": 5,
-                  "marginTop": 5,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#fff",
-                    "fontFamily": "montserrat",
-                    "fontSize": 16,
-                  }
-                }
-              >
-                flower 1
-              </Text>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#fff",
-                    "fontFamily": "montserrat",
-                    "fontSize": 16,
-                  }
-                }
-              >
-                S./ 
-                10.9
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          style={Object {}}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "backgroundColor": "#574E6D",
-                "flexDirection": "row",
-                "height": 160,
-                "marginTop": 13.34,
-                "width": 712.5,
-              }
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
-                }
-              }
-              style={
-                Object {
-                  "flex": 1,
-                  "width": 200,
-                }
-              }
-            />
-            <View
-              style={
-                Object {
-                  "flex": 0.4,
-                  "marginLeft": 5,
-                  "marginTop": 5,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#fff",
-                    "fontFamily": "montserrat",
-                    "fontSize": 16,
-                  }
-                }
-              >
-                flower 2
-              </Text>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#fff",
-                    "fontFamily": "montserrat",
-                    "fontSize": 16,
-                  }
-                }
-              >
-                S./ 
-                12.5
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          style={Object {}}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "backgroundColor": "#574E6D",
-                "flexDirection": "row",
-                "height": 160,
-                "marginTop": 13.34,
-                "width": 712.5,
-              }
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
-                }
-              }
-              style={
-                Object {
-                  "flex": 1,
-                  "width": 200,
-                }
-              }
-            />
-            <View
-              style={
-                Object {
-                  "flex": 0.4,
-                  "marginLeft": 5,
-                  "marginTop": 5,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#fff",
-                    "fontFamily": "montserrat",
-                    "fontSize": 16,
-                  }
-                }
-              >
-                flower 3
-              </Text>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#fff",
-                    "fontFamily": "montserrat",
-                    "fontSize": 16,
-                  }
-                }
-              >
-                S./ 
-                14.2
-              </Text>
-            </View>
-          </View>
-        </View>
+          }
+        />
       </View>
-    </RCTScrollView>
+      <View
+        style={Object {}}
+      >
+        <FlowerItem
+          flower={
+            Object {
+              "image": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
+              "price": 12.5,
+              "title": "flower 2",
+            }
+          }
+        />
+      </View>
+      <View
+        style={Object {}}
+      >
+        <FlowerItem
+          flower={
+            Object {
+              "image": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
+              "price": 14.2,
+              "title": "flower 3",
+            }
+          }
+        />
+      </View>
+    </ScrollViewMock>
   </View>
 </View>
 `;

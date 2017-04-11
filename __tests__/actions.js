@@ -1,6 +1,6 @@
 import { FETCH_FLOWERS, fetchAvailableFlowers } from '../src/screens/home/actions'
 
-jest.mock('../constants/api.js') // eslint-disable-line
+jest.mock('../constants/api.js')
 
 describe('actions', () => {
   it('should create an action to fetchAvailableFlowers', () => {

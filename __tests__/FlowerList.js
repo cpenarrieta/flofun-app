@@ -1,11 +1,12 @@
 import 'react-native'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Colors from '../constants/colors'
 import { FlowerList } from '../src/screens/home/components/'
 
-beforeAll(() => { // eslint-disable-line
+beforeAll(() => {
   EStyleSheet.build(Colors)
 })
 
@@ -18,12 +19,12 @@ const flowers = [
 
 describe('FlowerList', () => {
   test('renders correctly', () => {
-    const flowersElement = renderer.create(
+    const flowersElement = shallow(
       <FlowerList
         flowers={flowers}
       />
-    ).toJSON()
+    )
 
-    expect(flowersElement).toMatchSnapshot()
+    expect(toJson(flowersElement)).toMatchSnapshot()
   })
 })

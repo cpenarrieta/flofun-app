@@ -25,12 +25,15 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "eslint-config-equimper": "^1.6.0",
-    "react-native-debugger-open": "^0.3.4",
-    "redux-logger": "^3.0.1",
+    "eslint-config-equimper": "*",
+    "react-native-debugger-open": "*",
+    "redux-logger": "*",
     "jest": "*",
-    "react-test-renderer": "*",
-    "codecov": "*"
+    "codecov": "*",
+    "enzyme": "*",
+    "enzyme-to-json": "*",
+    "react-dom": "*",
+    "react-addons-test-utils": "*"
   },
   "jest": {
     "preset": "react-native",
