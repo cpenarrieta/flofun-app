@@ -1,37 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FlowerItem renders correctly 1`] = `
-<TouchableWithoutFeedback>
+<View
+  style={
+    Object {
+      "backgroundColor": "#574E6D",
+      "flexDirection": "row",
+      "height": 160,
+      "marginTop": 13.34,
+      "width": 712.5,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "width": 200,
+      }
+    }
+  />
   <View
     style={
       Object {
-        "backgroundColor": "#574E6D",
-        "flexDirection": "row",
-        "height": 160,
-        "marginTop": 13.34,
-        "width": 712.5,
+        "flex": 0.4,
+        "flexDirection": "column",
       }
     }
   >
-    <Image
-      source={
-        Object {
-          "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
-        }
-      }
-      style={
-        Object {
-          "flex": 1,
-          "width": 200,
-        }
-      }
-    />
     <View
       style={
         Object {
-          "flex": 0.4,
-          "marginLeft": 5,
-          "marginTop": 5,
+          "backgroundColor": "#4B586E",
+          "flex": 0.7,
+          "paddingLeft": 5,
+          "paddingTop": 5,
         }
       }
     >
@@ -42,8 +50,8 @@ exports[`FlowerItem renders correctly 1`] = `
         style={
           Object {
             "color": "#fff",
-            "fontFamily": "montserrat",
-            "fontSize": 16,
+            "fontFamily": "montserratBold",
+            "fontSize": 15,
           }
         }
       >
@@ -57,14 +65,41 @@ exports[`FlowerItem renders correctly 1`] = `
           Object {
             "color": "#fff",
             "fontFamily": "montserrat",
-            "fontSize": 16,
+            "fontSize": 12,
+          }
+        }
+      />
+    </View>
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#574E6D",
+            "flex": 0.3,
+            "justifyContent": "center",
           }
         }
       >
-        S./ 
-        32
-      </Text>
-    </View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#fff",
+              "fontFamily": "montserratMedium",
+              "fontSize": 16,
+            }
+          }
+        >
+          S./ 
+          32
+        </Text>
+      </View>
+    </TouchableWithoutFeedback>
   </View>
-</TouchableWithoutFeedback>
+</View>
 `;

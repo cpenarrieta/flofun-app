@@ -24,21 +24,4 @@ describe('FlowerItem', () => {
 
     expect(toJson(flower)).toMatchSnapshot()
   })
-
-  test('should have onPress event', () => {
-    const onPress = jest.fn();
-    const flower = shallow(
-      <FlowerItem
-        onPress={onPress}
-        flower={{
-          title: 'foo flower',
-          image: 'https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg',
-          price: 32.00,
-        }}
-      />
-    );
-
-    flower.simulate('press');
-    expect(onPress).toHaveBeenCalled();
-  });
 })
