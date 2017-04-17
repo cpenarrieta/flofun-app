@@ -2,7 +2,7 @@ export default {
   blackColor: 'black',
   whiteColor: '#fff',
   grayBackground: '#DDDDDD',
-  bottomColor: '#4B586E',
-  flowerDesColor: '#574E6D',
-  headerColor: '#43405D',
+  grayColor: '#4B586E',
+  purpleColor: '#574E6D',
+  purpleDarkColor: '#43405D',
 }

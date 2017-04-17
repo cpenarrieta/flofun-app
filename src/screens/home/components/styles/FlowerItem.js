@@ -5,7 +5,7 @@ const styles = EStyleSheet.create({
     width: '95%',
     height: 160,
     marginTop: '1.5%',
-    backgroundColor: '$flowerDesColor',
+    backgroundColor: '$purpleColor',
     flexDirection: 'row',
   },
   image: {
@@ -14,17 +14,33 @@ const styles = EStyleSheet.create({
   },
   flowerDesc: {
     flex: 0.4,
-    marginLeft: 5,
-    marginTop: 5,
+    flexDirection: 'column',
+  },
+  titleSection: {
+    flex: 0.7,
+    paddingLeft: 5,
+    paddingTop: 5,
+    backgroundColor: '$grayColor',
+  },
+  priceSection: {
+    flex: 0.3,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '$purpleColor',
   },
   title: {
-    fontSize: 16,
+    fontSize: 15,
+    fontFamily: 'montserratBold',
+    color: '$whiteColor',
+  },
+  subTitle: {
+    fontSize: 12,
     fontFamily: 'montserrat',
     color: '$whiteColor',
   },
   price: {
     fontSize: 16,
-    fontFamily: 'montserrat',
+    fontFamily: 'montserratMedium',
     color: '$whiteColor',
   },
 })

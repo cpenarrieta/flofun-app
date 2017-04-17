@@ -3,7 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet'
 const styles = EStyleSheet.create({
   headerContainer: {
     flex: 0.1,
-    backgroundColor: '$headerColor',
+    backgroundColor: '$purpleDarkColor',
     justifyContent: 'center',
   },
   title: {

@@ -14,7 +14,12 @@ const styles = EStyleSheet.create({
   },
   bottomContainer: {
     flex: 0.1,
-    backgroundColor: '$bottomColor',
+    backgroundColor: '$purpleColor',
+  },
+  bottomText: {
+    color: '$whiteColor',
+    fontSize: 16,
+    fontFamily: 'montserratMedium',
   },
 })
 

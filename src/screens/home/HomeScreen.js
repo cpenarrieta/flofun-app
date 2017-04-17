@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StatusBar } from 'react-native'
+import { View, Text, StatusBar, TouchableWithoutFeedback } from 'react-native'
 import { connect } from 'react-redux'
 
 import { FlowerList } from './components'
@@ -19,7 +19,7 @@ class HomeScreen extends Component {
     title: 'flofun',
     header: {
       style: {
-        backgroundColor: Colors.headerColor,
+        backgroundColor: Colors.purpleDarkColor,
       },
       titleStyle: {
         fontSize: 20,
@@ -59,9 +59,11 @@ class HomeScreen extends Component {
         <View style={styles.contentContainer}>
           <FlowerList flowers={data} />
         </View>
-        <View style={styles.bottomContainer}>
-          <Text>Arreglo 1 - S./ 120</Text>
-        </View>
+        <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Shipping')}>
+          <View style={styles.bottomContainer}>
+            <Text style={styles.bottomText}>Arreglo 1 - S./ 120</Text>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     )
   }
