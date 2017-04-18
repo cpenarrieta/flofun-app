@@ -1,3 +1,6 @@
 export * from './home'
 export * from './profile'
 export * from './shipping'
+export * from './contactDetails'
+export * from './payment'
+export * from './orderStatus'

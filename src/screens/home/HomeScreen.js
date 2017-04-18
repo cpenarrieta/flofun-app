@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StatusBar, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, StatusBar, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
 import { FlowerList } from './components'
@@ -59,11 +59,11 @@ class HomeScreen extends Component {
         <View style={styles.contentContainer}>
           <FlowerList flowers={data} />
         </View>
-        <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Shipping')}>
-          <View style={styles.bottomContainer}>
+        <View style={styles.bottomContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Shipping')}>
             <Text style={styles.bottomText}>Arreglo 1 - S./ 120</Text>
-          </View>
-        </TouchableWithoutFeedback>
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }

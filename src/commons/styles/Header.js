@@ -12,6 +12,9 @@ const styles = EStyleSheet.create({
     color: '$whiteColor',
     textAlign: 'center',
   },
+  iconBack: {
+    marginLeft: '3%',
+  },
 })
 
 export default styles

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import styles from './styles/FlowerItem'
 
 const FlowerItem = ({ flower }) => (
@@ -13,11 +13,11 @@ const FlowerItem = ({ flower }) => (
         <Text style={styles.title}>{flower.title}</Text>
         <Text style={styles.subTitle}>{flower.description}</Text>
       </View>
-      <TouchableWithoutFeedback onPress={() => console.log(flower.price)}>
-        <View style={styles.priceSection}>
+      <View style={styles.priceSection}>
+        <TouchableOpacity onPress={() => console.log(flower.price)}>
           <Text style={styles.price}>S./ {flower.price}</Text>
-        </View>
-      </TouchableWithoutFeedback>
+        </TouchableOpacity>
+      </View>
     </View>
   </View>
 )

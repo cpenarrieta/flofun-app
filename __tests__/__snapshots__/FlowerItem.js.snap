@@ -70,18 +70,20 @@ exports[`FlowerItem renders correctly 1`] = `
         }
       />
     </View>
-    <TouchableWithoutFeedback
-      onPress={[Function]}
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#574E6D",
-            "flex": 0.3,
-            "justifyContent": "center",
-          }
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#574E6D",
+          "flex": 0.3,
+          "justifyContent": "center",
         }
+      }
+    >
+      <TouchableOpacity
+        activeOpacity={0.2}
+        focusedOpacity={0.7}
+        onPress={[Function]}
       >
         <Text
           accessible={true}
@@ -98,8 +100,8 @@ exports[`FlowerItem renders correctly 1`] = `
           S./ 
           32
         </Text>
-      </View>
-    </TouchableWithoutFeedback>
+      </TouchableOpacity>
+    </View>
   </View>
 </View>
 `;
