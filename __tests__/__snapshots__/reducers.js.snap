@@ -26,6 +26,7 @@ Object {
     },
     "isFetched": true,
   },
+  "selectedFlowers": Array [],
 }
 `;
 
@@ -39,6 +40,7 @@ Object {
     },
     "isFetched": true,
   },
+  "selectedFlowers": Array [],
 }
 `;
 
@@ -52,6 +54,7 @@ Object {
     },
     "isFetched": false,
   },
+  "selectedFlowers": Array [],
 }
 `;
 
@@ -65,5 +68,6 @@ Object {
     },
     "isFetched": false,
   },
+  "selectedFlowers": Array [],
 }
 `;

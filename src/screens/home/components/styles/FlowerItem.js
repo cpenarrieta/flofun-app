@@ -8,12 +8,14 @@ const styles = EStyleSheet.create({
     backgroundColor: '$purpleColor',
     flexDirection: 'row',
   },
+  imageSection: {
+    flex: 0.7,
+  },
   image: {
     flex: 1,
-    width: 200,
   },
   flowerDesc: {
-    flex: 0.4,
+    flex: 0.3,
     flexDirection: 'column',
   },
   titleSection: {
@@ -42,6 +44,9 @@ const styles = EStyleSheet.create({
     fontSize: 16,
     fontFamily: 'montserratMedium',
     color: '$whiteColor',
+  },
+  priceSelected: {
+    backgroundColor: '$greenColor',
   },
 })
 

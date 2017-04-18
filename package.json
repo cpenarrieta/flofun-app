@@ -8,7 +8,8 @@
   "scripts": {
     "postinstall": "rndebugger-open",
     "clean": "rm -rf node_modules && rm yarn.lock",
-    "test": "jest"
+    "test": "jest",
+    "dev": "exp start --ios"
   },
   "dependencies": {
     "@expo/vector-icons": "~4.0.0",
@@ -31,7 +32,7 @@
     "eslint-config-equimper": "*",
     "jest": "*",
     "react-addons-test-utils": "*",
-    "react-dom": "*",
+    "react-dom": "~15.4.0",
     "react-native-debugger-open": "*",
     "redux-logger": "*"
   },

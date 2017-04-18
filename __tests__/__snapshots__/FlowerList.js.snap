@@ -23,6 +23,7 @@ exports[`FlowerList renders correctly 1`] = `
               "title": "flower 1",
             }
           }
+          selected={false}
         />
       </View>
       <View
@@ -36,6 +37,7 @@ exports[`FlowerList renders correctly 1`] = `
               "title": "flower 2",
             }
           }
+          selected={false}
         />
       </View>
       <View
@@ -49,6 +51,7 @@ exports[`FlowerList renders correctly 1`] = `
               "title": "flower 3",
             }
           }
+          selected={false}
         />
       </View>
     </ScrollViewMock>

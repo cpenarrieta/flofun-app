@@ -22,6 +22,7 @@ describe('FlowerList', () => {
     const flowersElement = shallow(
       <FlowerList
         flowers={flowers}
+        selectedFlowers={[]}
       />
     )
 

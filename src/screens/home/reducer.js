@@ -1,8 +1,10 @@
 import {
   FETCH_FLOWERS,
+  SELECT_FLOWER,
 } from './actions'
 
 const INITIAL_STATE = {
+  selectedFlowers: [],
   flowers: {
     data: [],
     isFetched: false,
@@ -19,6 +21,7 @@ export default (state = INITIAL_STATE, action) => {
       return INITIAL_STATE
     case `${FETCH_FLOWERS}_FULFILLED`:
       return {
+        selectedFlowers: [],
         flowers: {
           data: action.payload,
           isFetched: true,
@@ -30,6 +33,7 @@ export default (state = INITIAL_STATE, action) => {
       }
     case `${FETCH_FLOWERS}_REJECT`:
       return {
+        selectedFlowers: [],
         flowers: {
           data: [],
           isFetched: true,
@@ -39,6 +43,14 @@ export default (state = INITIAL_STATE, action) => {
           },
         },
       }
+    case SELECT_FLOWER: {
+      const tmpSelectedFlowers = state.selectedFlowers.slice()
+      tmpSelectedFlowers.push(action.payload)
+      return {
+        ...state,
+        selectedFlowers: tmpSelectedFlowers,
+      }
+    }
     default:
       return state
   }

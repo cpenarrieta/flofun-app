@@ -12,23 +12,30 @@ exports[`FlowerItem renders correctly 1`] = `
     }
   }
 >
-  <Image
-    source={
-      Object {
-        "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
-      }
-    }
-    style={
-      Object {
-        "flex": 1,
-        "width": 200,
-      }
-    }
-  />
   <View
     style={
       Object {
-        "flex": 0.4,
+        "flex": 0.7,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
+        }
+      }
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 0.3,
         "flexDirection": "column",
       }
     }
@@ -72,12 +79,15 @@ exports[`FlowerItem renders correctly 1`] = `
     </View>
     <View
       style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#574E6D",
-          "flex": 0.3,
-          "justifyContent": "center",
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#574E6D",
+            "flex": 0.3,
+            "justifyContent": "center",
+          },
+          null,
+        ]
       }
     >
       <TouchableOpacity

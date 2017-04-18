@@ -6,13 +6,20 @@ import { FlowerList } from './components'
 import LoadingScreen from '../../commons/LoadingScreen'
 import Colors from '../../../constants/colors'
 import styles from './styles/HomeScreen'
-import { fetchAvailableFlowers } from './actions'
+import {
+  fetchAvailableFlowers,
+  selectFlowerAction,
+} from './actions'
 
 @connect(
   state => ({
     flowers: state.home.flowers,
+    selectedFlowers: state.home.selectedFlowers,
   }),
-  { fetchAvailableFlowers }
+  {
+    fetchAvailableFlowers,
+    selectFlowerAction,
+  }
 )
 class HomeScreen extends Component {
   static navigationOptions = {
@@ -41,7 +48,9 @@ class HomeScreen extends Component {
         isFetched,
         error,
       },
+      selectedFlowers,
     } = this.props
+    const selectFlower = this.props.selectFlowerAction
 
     if (!isFetched) {
       return <LoadingScreen />
@@ -53,17 +62,29 @@ class HomeScreen extends Component {
       )
     }
 
+    const footer = selectedFlowers.length > 0 ?
+    (
+      <View style={styles.bottomContainer}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('ContactDetails')}>
+          {selectedFlowers.map((flower, id) =>
+            <Text key={id}>{flower.title}</Text>
+          )}
+        </TouchableOpacity>
+      </View>
+    )
+    : null
+
     return (
       <View style={styles.root}>
         <StatusBar barStyle="light-content" />
         <View style={styles.contentContainer}>
-          <FlowerList flowers={data} />
+          <FlowerList
+            flowers={data}
+            selectFlower={selectFlower}
+            selectedFlowers={selectedFlowers}
+          />
         </View>
-        <View style={styles.bottomContainer}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Shipping')}>
-            <Text style={styles.bottomText}>Arreglo 1 - S./ 120</Text>
-          </TouchableOpacity>
-        </View>
+        {footer}
       </View>
     )
   }

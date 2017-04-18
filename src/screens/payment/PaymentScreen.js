@@ -13,9 +13,8 @@ export default class PaymentScreen extends Component {
 
   render() {
     const resetAction = NavigationActions.reset({
-      index: 1,
+      index: 0,
       actions: [
-        NavigationActions.navigate({ routeName: 'Home' }),
         NavigationActions.navigate({ routeName: 'OrderStatus' }),
       ],
     })

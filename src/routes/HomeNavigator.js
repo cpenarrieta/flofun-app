@@ -10,10 +10,15 @@ import {
 
 export default StackNavigator({
   Home: { screen: HomeScreen },
-  Shipping: { screen: ShippingScreen },
   ContactDetails: { screen: ContactDetailsScreen },
+  Shipping: { screen: ShippingScreen },
   Payment: { screen: PaymentScreen },
   OrderStatus: { screen: OrderStatusScreen },
 }, {
   mode: 'modal',
+  navigationOptions: {
+    cardStack: {
+      gesturesEnabled: false,
+    },
+  },
 })
