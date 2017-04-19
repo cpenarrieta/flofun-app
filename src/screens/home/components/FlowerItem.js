@@ -4,10 +4,10 @@ import styles from './styles/FlowerItem'
 
 class FlowerItem extends Component {
   render() {
-    const { flower, selectFlower, selected } = this.props
+    const { flower, selectFlower, selected, lastElement } = this.props
 
     return (
-      <View style={styles.root}>
+      <View style={[styles.root, lastElement && styles.lastFlower]}>
         <View style={styles.imageSection}>
           <Image
             source={{ uri: flower.image }}

@@ -13,6 +13,7 @@ const FlowerList = ({ flowers, selectFlower, selectedFlowers }) => (
               flower={flower}
               selectFlower={selectFlower}
               selected={!!selectedFlowers.find((f) => f._id === flower._id)}
+              lastElement={i === flowers.length - 1}
             />
           </View>
         ))}

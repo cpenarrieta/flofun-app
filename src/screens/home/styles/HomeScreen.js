@@ -12,15 +12,6 @@ const styles = EStyleSheet.create({
     alignItems: 'center',
     backgroundColor: '$grayBackground',
   },
-  bottomContainer: {
-    flex: 0.1,
-    backgroundColor: '$purpleColor',
-  },
-  bottomText: {
-    color: '$whiteColor',
-    fontSize: 16,
-    fontFamily: 'montserratMedium',
-  },
 })
 
 export default styles

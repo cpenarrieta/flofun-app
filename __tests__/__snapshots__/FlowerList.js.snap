@@ -12,9 +12,7 @@ exports[`FlowerList renders correctly 1`] = `
     <ScrollViewMock
       vertical={true}
     >
-      <View
-        style={Object {}}
-      >
+      <View>
         <FlowerItem
           flower={
             Object {
@@ -23,12 +21,11 @@ exports[`FlowerList renders correctly 1`] = `
               "title": "flower 1",
             }
           }
+          lastElement={false}
           selected={false}
         />
       </View>
-      <View
-        style={Object {}}
-      >
+      <View>
         <FlowerItem
           flower={
             Object {
@@ -37,12 +34,11 @@ exports[`FlowerList renders correctly 1`] = `
               "title": "flower 2",
             }
           }
+          lastElement={false}
           selected={false}
         />
       </View>
-      <View
-        style={Object {}}
-      >
+      <View>
         <FlowerItem
           flower={
             Object {
@@ -51,6 +47,7 @@ exports[`FlowerList renders correctly 1`] = `
               "title": "flower 3",
             }
           }
+          lastElement={true}
           selected={false}
         />
       </View>

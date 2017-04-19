@@ -1,6 +1,7 @@
 import {
   FETCH_FLOWERS,
   SELECT_FLOWER,
+  REMOVE_FLOWER,
 } from './actions'
 
 const INITIAL_STATE = {
@@ -45,10 +46,25 @@ export default (state = INITIAL_STATE, action) => {
       }
     case SELECT_FLOWER: {
       const tmpSelectedFlowers = state.selectedFlowers.slice()
-      tmpSelectedFlowers.push(action.payload)
+      let modalMessage = ''
+      if (tmpSelectedFlowers.length === 3) {
+        modalMessage = 'Cart Full'
+      } else {
+        tmpSelectedFlowers.push(action.payload)
+      }
+
       return {
         ...state,
         selectedFlowers: tmpSelectedFlowers,
+        modalMessage,
+      }
+    }
+    case REMOVE_FLOWER: {
+      const newSelectedFlowers = state.selectedFlowers.filter((f) => f._id !== action.payload._id)
+
+      return {
+        ...state,
+        selectedFlowers: newSelectedFlowers,
       }
     }
     default:

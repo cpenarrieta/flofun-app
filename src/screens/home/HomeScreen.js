@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import { View, Text, StatusBar, TouchableOpacity } from 'react-native'
+import { View, Text, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 
-import { FlowerList } from './components'
+import { FlowerList, Footer } from './components'
 import LoadingScreen from '../../commons/LoadingScreen'
 import Colors from '../../../constants/colors'
 import styles from './styles/HomeScreen'
 import {
   fetchAvailableFlowers,
-  selectFlowerAction,
+  selectFlower,
+  removeSelectedFlower,
 } from './actions'
 
 @connect(
@@ -18,7 +19,8 @@ import {
   }),
   {
     fetchAvailableFlowers,
-    selectFlowerAction,
+    selectFlower,
+    removeSelectedFlower,
   }
 )
 class HomeScreen extends Component {
@@ -50,7 +52,6 @@ class HomeScreen extends Component {
       },
       selectedFlowers,
     } = this.props
-    const selectFlower = this.props.selectFlowerAction
 
     if (!isFetched) {
       return <LoadingScreen />
@@ -62,29 +63,21 @@ class HomeScreen extends Component {
       )
     }
 
-    const footer = selectedFlowers.length > 0 ?
-    (
-      <View style={styles.bottomContainer}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('ContactDetails')}>
-          {selectedFlowers.map((flower, id) =>
-            <Text key={id}>{flower.title}</Text>
-          )}
-        </TouchableOpacity>
-      </View>
-    )
-    : null
-
     return (
       <View style={styles.root}>
         <StatusBar barStyle="light-content" />
         <View style={styles.contentContainer}>
           <FlowerList
             flowers={data}
-            selectFlower={selectFlower}
+            selectFlower={this.props.selectFlower}
             selectedFlowers={selectedFlowers}
           />
         </View>
-        {footer}
+        <Footer
+          selectedFlowers={selectedFlowers}
+          removeSelectedFlower={this.props.removeSelectedFlower}
+          navigate={this.props.navigation.navigate}
+        />
       </View>
     )
   }

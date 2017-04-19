@@ -8,6 +8,9 @@ const styles = EStyleSheet.create({
     backgroundColor: '$purpleColor',
     flexDirection: 'row',
   },
+  lastFlower: {
+    marginBottom: '1.5%',
+  },
   imageSection: {
     flex: 0.7,
   },

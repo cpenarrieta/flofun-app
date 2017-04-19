@@ -3,13 +3,16 @@
 exports[`FlowerItem renders correctly 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "#574E6D",
-      "flexDirection": "row",
-      "height": 160,
-      "marginTop": 13.34,
-      "width": 712.5,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#574E6D",
+        "flexDirection": "row",
+        "height": 160,
+        "marginTop": 13.34,
+        "width": 712.5,
+      },
+      undefined,
+    ]
   }
 >
   <View
