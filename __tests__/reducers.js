@@ -1,4 +1,4 @@
-import { FETCH_FLOWERS } from '../src/screens/home/actions'
+import { FETCH_FLOWERS } from '../src/screens/flowersShop/actions'
 import reducer from '../src/redux/reducers'
 
 const flowers = [
@@ -7,10 +7,10 @@ const flowers = [
   { title: 'flower 3', image: 'img3', price: 50 },
 ]
 
-describe('Home Reducer', () => {
+describe('FlowersShop Reducer', () => {
   it('should return the initial state', () => {
     expect(
-      reducer(undefined, {}).home
+      reducer(undefined, {}).flowerShop
     ).toMatchSnapshot()
   })
 
@@ -18,7 +18,7 @@ describe('Home Reducer', () => {
     expect(
       reducer(undefined, {
         type: `${FETCH_FLOWERS}_PENDING`,
-      }).home
+      }).flowerShop
     ).toMatchSnapshot()
   })
 
@@ -27,7 +27,7 @@ describe('Home Reducer', () => {
       reducer(undefined, {
         type: `${FETCH_FLOWERS}_FULFILLED`,
         payload: flowers,
-      }).home
+      }).flowerShop
     ).toMatchSnapshot()
   })
 
@@ -35,7 +35,7 @@ describe('Home Reducer', () => {
     expect(
       reducer(undefined, {
         type: `${FETCH_FLOWERS}_REJECT`,
-      }).home
+      }).flowerShop
     ).toMatchSnapshot()
   })
 })

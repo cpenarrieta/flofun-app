@@ -12,6 +12,8 @@
     "dev": "exp start --ios"
   },
   "dependencies": {
+    "@expo/ex-navigation": "^2.10.0",
+    "@expo/react-native-image-gallery": "^1.0.4",
     "@expo/vector-icons": "~4.0.0",
     "axios": "^0.16.0",
     "expo": "^15.0.2",
@@ -31,13 +33,14 @@
     "enzyme-to-json": "*",
     "eslint-config-equimper": "*",
     "jest": "*",
+    "jest-expo": "^0.4.0",
     "react-addons-test-utils": "*",
     "react-dom": "~15.4.0",
     "react-native-debugger-open": "*",
     "redux-logger": "*"
   },
   "jest": {
-    "preset": "react-native",
+    "preset": "jest-expo",
     "coverageDirectory": "./coverage/",
     "collectCoverageFrom": [
       "src/**/*.js"

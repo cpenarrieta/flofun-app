@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { View, Text, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
+import ImageGallery from '@expo/react-native-image-gallery'
 
 import { FlowerList, Footer } from './components'
 import LoadingScreen from '../../commons/LoadingScreen'
-import Colors from '../../../constants/colors'
-import styles from './styles/HomeScreen'
+import styles from './styles/FlowerShopScreen'
+import HeaderStack from '../../commons/HeaderStack'
 import {
   fetchAvailableFlowers,
   selectFlower,
@@ -14,8 +15,8 @@ import {
 
 @connect(
   state => ({
-    flowers: state.home.flowers,
-    selectedFlowers: state.home.selectedFlowers,
+    flowers: state.flowerShop.flowers,
+    selectedFlowers: state.flowerShop.selectedFlowers,
   }),
   {
     fetchAvailableFlowers,
@@ -23,20 +24,10 @@ import {
     removeSelectedFlower,
   }
 )
-class HomeScreen extends Component {
+class FlowerShopScreen extends Component {
   static navigationOptions = {
-    title: 'flofun',
-    header: {
-      style: {
-        backgroundColor: Colors.purpleDarkColor,
-      },
-      titleStyle: {
-        fontSize: 20,
-        fontFamily: 'montserratBold',
-        color: Colors.whiteColor,
-        textAlign: 'center',
-      },
-    },
+    title: 'Select Flower',
+    header: ({ goBack }) => HeaderStack(goBack),
   }
 
   componentDidMount() {
@@ -78,9 +69,10 @@ class HomeScreen extends Component {
           removeSelectedFlower={this.props.removeSelectedFlower}
           navigate={this.props.navigation.navigate}
         />
+        <ImageGallery />
       </View>
     )
   }
 }
 
-export default HomeScreen
+export default FlowerShopScreen

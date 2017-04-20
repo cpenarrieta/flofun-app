@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Colors from '../constants/colors'
-import { FlowerList } from '../src/screens/home/components/'
+import { FlowerList } from '../src/screens/flowersShop/components/'
 
 beforeAll(() => {
   EStyleSheet.build(Colors)

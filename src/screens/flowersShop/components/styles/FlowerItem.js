@@ -3,35 +3,45 @@ import EStyleSheet from 'react-native-extended-stylesheet'
 const styles = EStyleSheet.create({
   root: {
     width: '95%',
-    height: 160,
+    height: 200,
     marginTop: '1.5%',
-    backgroundColor: '$purpleColor',
-    flexDirection: 'row',
+    backgroundColor: '$whiteColor',
+    flexDirection: 'column',
   },
   lastFlower: {
     marginBottom: '1.5%',
   },
   imageSection: {
-    flex: 0.7,
+    flex: 1,
   },
   image: {
     flex: 1,
   },
   flowerDesc: {
-    flex: 0.3,
-    flexDirection: 'column',
+    flexDirection: 'row',
+    height: 45,
+    alignItems: 'center',
   },
   titleSection: {
-    flex: 0.7,
+    height: 45,
+    flex: 0.55,
     paddingLeft: 5,
-    paddingTop: 5,
+    justifyContent: 'center',
     backgroundColor: '$grayColor',
   },
   priceSection: {
-    flex: 0.3,
+    height: 45,
+    flex: 0.25,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '$purpleColor',
+  },
+  addToCart: {
+    height: 45,
+    flex: 0.15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '$purpleDarkColor',
   },
   title: {
     fontSize: 15,

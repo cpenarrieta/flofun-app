@@ -18,7 +18,7 @@ export default class ContactDetailsScreen extends Component {
           fontFamily="montserrat"
           onPress={() => console.log('press button')}
           title="continue"
-          onPress={() => this.props.navigation.navigate('Shipping')}
+          onPress={() => this.props.navigation.navigate('Payment')}
         />
       </View>
     )

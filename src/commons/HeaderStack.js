@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import styles from './styles/Header'
 
-import Colors from '../../constants/colors';
+import Colors from '../../constants/colors'
 
 const HeaderStack = (goBack, { hideBack } = {}) => {
   const style = { backgroundColor: Colors.purpleDarkColor }

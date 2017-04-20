@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home Reducer should fill the data if fullfiled 1`] = `
+exports[`FlowersShop Reducer should fill the data if fullfiled 1`] = `
 Object {
   "flowers": Object {
     "data": Array [
@@ -30,7 +30,7 @@ Object {
 }
 `;
 
-exports[`Home Reducer should return the error state if rejected 1`] = `
+exports[`FlowersShop Reducer should return the error state if rejected 1`] = `
 Object {
   "flowers": Object {
     "data": Array [],
@@ -44,7 +44,7 @@ Object {
 }
 `;
 
-exports[`Home Reducer should return the initial if pending 1`] = `
+exports[`FlowersShop Reducer should return the initial if pending 1`] = `
 Object {
   "flowers": Object {
     "data": Array [],
@@ -58,7 +58,7 @@ Object {
 }
 `;
 
-exports[`Home Reducer should return the initial state 1`] = `
+exports[`FlowersShop Reducer should return the initial state 1`] = `
 Object {
   "flowers": Object {
     "data": Array [],

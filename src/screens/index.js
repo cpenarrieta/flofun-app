@@ -1,4 +1,4 @@
-export * from './home'
+export * from './flowersShop'
 export * from './profile'
 export * from './shipping'
 export * from './contactDetails'

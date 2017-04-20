@@ -1,4 +1,4 @@
-import { FETCH_FLOWERS, fetchAvailableFlowers } from '../src/screens/home/actions'
+import { FETCH_FLOWERS, fetchAvailableFlowers } from '../src/screens/flowersShop/actions'
 
 jest.mock('../constants/api.js')
 

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import {
-  HomeReducer,
+  FlowerShopReducer,
 } from '../screens'
 
 export default combineReducers({
-  home: HomeReducer,
+  flowerShop: FlowerShopReducer,
 })

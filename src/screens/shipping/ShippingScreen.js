@@ -5,8 +5,8 @@ import HeaderStack from '../../commons/HeaderStack'
 
 export default class ShippingScreen extends Component {
   static navigationOptions = {
-    title: 'Shipping Address',
-    header: ({ goBack }) => HeaderStack(goBack),
+    title: 'flofun',
+    header: ({ goBack }) => HeaderStack(goBack, { hideBack: true }),
   }
 
   render() {
@@ -18,7 +18,7 @@ export default class ShippingScreen extends Component {
           fontFamily="montserrat"
           onPress={() => console.log('press button')}
           title="continue"
-          onPress={() => this.props.navigation.navigate('Payment')}
+          onPress={() => this.props.navigation.navigate('FlowerShop')}
         />
       </View>
     )

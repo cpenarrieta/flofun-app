@@ -1,7 +1,7 @@
 import { StackNavigator } from 'react-navigation'
 
 import {
-  HomeScreen,
+  FlowerShopScreen,
   ShippingScreen,
   ContactDetailsScreen,
   PaymentScreen,
@@ -9,9 +9,9 @@ import {
 } from '../screens'
 
 export default StackNavigator({
-  Home: { screen: HomeScreen },
-  ContactDetails: { screen: ContactDetailsScreen },
   Shipping: { screen: ShippingScreen },
+  FlowerShop: { screen: FlowerShopScreen },
+  ContactDetails: { screen: ContactDetailsScreen },
   Payment: { screen: PaymentScreen },
   OrderStatus: { screen: OrderStatusScreen },
 }, {
