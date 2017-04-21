@@ -4,10 +4,10 @@ import { Button } from 'react-native-elements'
 import HeaderStack from '../../commons/HeaderStack'
 
 export default class ShippingScreen extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'flofun',
-    header: ({ goBack }) => HeaderStack(goBack, { hideBack: true }),
-  }
+    ...HeaderStack(navigation.goBack, { hideBack: true }),
+  })
 
   render() {
     return (

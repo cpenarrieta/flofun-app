@@ -3,10 +3,10 @@ import { Text, View } from 'react-native'
 import HeaderStack from '../../commons/HeaderStack'
 
 export default class OrderStatusScreen extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Order Status',
-    header: ({ goBack }) => HeaderStack(goBack, { hideBack: true }),
-  }
+    ...HeaderStack(navigation.goBack, { hideBack: true }),
+  })
 
   render() {
     return (

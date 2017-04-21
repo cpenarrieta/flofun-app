@@ -5,10 +5,10 @@ import { NavigationActions } from 'react-navigation'
 import HeaderStack from '../../commons/HeaderStack'
 
 export default class PaymentScreen extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Payment',
-    header: ({ goBack }) => HeaderStack(goBack),
-  }
+    ...HeaderStack(navigation.goBack),
+  })
 
   render() {
     const resetAction = NavigationActions.reset({

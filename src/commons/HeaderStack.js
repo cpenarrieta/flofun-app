@@ -6,16 +6,16 @@ import styles from './styles/Header'
 import Colors from '../../constants/colors'
 
 const HeaderStack = (goBack, { hideBack } = {}) => {
-  const style = { backgroundColor: Colors.purpleDarkColor }
+  const headerStyle = { backgroundColor: Colors.purpleDarkColor }
 
-  const titleStyle = {
+  const headerTitleStyle = {
     fontSize: 20,
     fontFamily: 'montserratBold',
     color: Colors.whiteColor,
     textAlign: 'center',
   }
 
-  const left = hideBack ? null : (
+  const headerLeft = hideBack ? null : (
     <TouchableOpacity style={styles.iconBack} onPress={() => goBack()}>
       <Ionicons
         name="ios-arrow-back"
@@ -25,7 +25,7 @@ const HeaderStack = (goBack, { hideBack } = {}) => {
     </TouchableOpacity>
   )
 
-  return { style, titleStyle, left }
+  return { headerStyle, headerTitleStyle, headerLeft }
 }
 
 export default HeaderStack

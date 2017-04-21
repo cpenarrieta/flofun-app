@@ -25,10 +25,10 @@ import {
   }
 )
 class FlowerShopScreen extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Select Flower',
-    header: ({ goBack }) => HeaderStack(goBack),
-  }
+    ...HeaderStack(navigation.goBack),
+  })
 
   componentDidMount() {
     this.props.fetchAvailableFlowers()

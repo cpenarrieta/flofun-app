@@ -4,10 +4,10 @@ import { Button } from 'react-native-elements'
 import HeaderStack from '../../commons/HeaderStack'
 
 export default class ContactDetailsScreen extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Provide Message',
-    header: ({ goBack }) => HeaderStack(goBack),
-  }
+    ...HeaderStack(navigation.goBack),
+  })
 
   render() {
     return (
