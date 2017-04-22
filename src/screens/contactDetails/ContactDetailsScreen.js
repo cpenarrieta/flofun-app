@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
+
 import HeaderStack from '../../commons/HeaderStack'
 
 export default class ContactDetailsScreen extends Component {

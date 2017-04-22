@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-import { Button } from 'react-native-elements'
+import { View } from 'react-native'
+import { MapView } from 'expo'
+
 import HeaderStack from '../../commons/HeaderStack'
+import LoadingScreen from '../../commons/LoadingScreen'
+import styles from './styles/ShippingScreen'
+import Colors from '../../../constants/colors'
 
 export default class ShippingScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -9,17 +13,51 @@ export default class ShippingScreen extends Component {
     ...HeaderStack(navigation.goBack, { hideBack: true }),
   })
 
+  state = {
+    currentPosition: undefined,
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      (currentPosition) => {
+        const position = {
+          latitude: currentPosition.coords.latitude,
+          longitude: currentPosition.coords.longitude,
+        }
+        this.setState({ currentPosition: position })
+      },
+      (error) => console.log(JSON.stringify(error)),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    )
+  }
+
   render() {
+    const { currentPosition } = this.state
+
+    if (!currentPosition) {
+      return <LoadingScreen />
+    }
+
     return (
-      <View>
-        <Text>Shipping page</Text>
-        <Button
-          raised
-          fontFamily="montserrat"
-          onPress={() => console.log('press button')}
-          title="continue"
-          onPress={() => this.props.navigation.navigate('FlowerShop')}
-        />
+      <View style={styles.root}>
+        <MapView
+          style={styles.mapView}
+          showsMyLocationButton
+          zoomEnabled
+          initialRegion={{
+            latitude: currentPosition.latitude,
+            longitude: currentPosition.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        >
+          <MapView.Marker
+            coordinate={currentPosition}
+            pinColor={Colors.purpleDarkColor}
+            onDragEnd={(result) => console.log(result)}
+            draggable
+          />
+        </MapView>
       </View>
     )
   }

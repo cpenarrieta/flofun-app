@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
+
 import HeaderStack from '../../commons/HeaderStack'
 
 export default class OrderStatusScreen extends Component {

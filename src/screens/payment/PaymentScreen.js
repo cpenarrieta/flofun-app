@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { NavigationActions } from 'react-navigation'
+
 import HeaderStack from '../../commons/HeaderStack'
 
 export default class PaymentScreen extends Component {

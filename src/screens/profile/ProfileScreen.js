@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+
 import { Header } from '../../commons'
 import styles from './styles/ProfileScreen'
 

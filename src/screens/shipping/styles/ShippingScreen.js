@@ -1,8 +1,12 @@
 import EStyleSheet from 'react-native-extended-stylesheet'
 
 const styles = EStyleSheet.create({
-  iconBack: {
-    marginLeft: '3%',
+  root: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  mapView: {
+    flex: 1,
   },
 })
 
