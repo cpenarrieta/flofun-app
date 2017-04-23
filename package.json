@@ -45,6 +45,9 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ],
-    "collectCoverage": true
+    "collectCoverage": true,
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-navigation)"
+    ]
   }
 }

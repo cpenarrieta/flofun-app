@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import { MapView } from 'expo'
+import { FontAwesome } from '@expo/vector-icons'
 
 import HeaderStack from '../../commons/HeaderStack'
 import LoadingScreen from '../../commons/LoadingScreen'
@@ -54,9 +55,15 @@ export default class ShippingScreen extends Component {
           <MapView.Marker
             coordinate={currentPosition}
             pinColor={Colors.purpleDarkColor}
-            onDragEnd={(result) => console.log(result)}
             draggable
           />
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('FlowerShop')}>
+            <FontAwesome
+              name="arrow-right"
+              size={40}
+              color="#fff"
+            />
+          </TouchableOpacity>
         </MapView>
       </View>
     )
