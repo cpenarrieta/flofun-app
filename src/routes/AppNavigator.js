@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { addNavigationHelpers } from 'react-navigation'
 import { connect } from 'react-redux'
+import { View, StatusBar } from 'react-native'
 
 import { LoginScreen } from '../screens'
 import Navigator from './Navigator'
@@ -20,11 +21,19 @@ export default class AppNavigator extends Component {
 
     if (this.props.user.logged) {
       return (
-        <Navigator navigation={navigation} />
+        <View style={{ flex: 1 }}>
+          <StatusBar barStyle="light-content" />
+          <Navigator navigation={navigation} />
+        </View>
       )
     }
 
-    return <LoginScreen />
+    return (
+      <View style={{ flex: 1 }}>
+        <StatusBar barStyle="dark-content" />
+        <LoginScreen />
+      </View>
+    )
   }
 }
 

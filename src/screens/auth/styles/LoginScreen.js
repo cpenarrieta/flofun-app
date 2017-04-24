@@ -5,24 +5,24 @@ const styles = EStyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '$purpleColor',
+    backgroundColor: '$whiteColor',
   },
   authTitle: {
     fontSize: 30,
     fontFamily: 'montserratBold',
-    color: '$whiteColor',
+    color: '$purpleDarkColor',
     backgroundColor: 'transparent',
   },
   authWelcomeTitle: {
     fontSize: 24,
     fontFamily: 'montserratBold',
-    color: '$whiteColor',
+    color: '$purpleColor',
     backgroundColor: 'transparent',
   },
   authWelcomeText: {
     fontSize: 16,
     fontFamily: 'montserrat',
-    color: '$whiteColor',
+    color: '$purpleColor',
     backgroundColor: 'transparent',
     textAlign: 'center',
     width: '70%',
@@ -43,7 +43,7 @@ const styles = EStyleSheet.create({
     flexDirection: 'row',
   },
   signUp: {
-    backgroundColor: '$grayColor',
+    backgroundColor: '$purpleColor',
   },
   signIn: {
     backgroundColor: '$purpleDarkColor',
