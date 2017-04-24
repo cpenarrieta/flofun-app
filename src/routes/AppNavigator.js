@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { addNavigationHelpers } from 'react-navigation'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
+import { LoginScreen } from '../screens'
 import Navigator from './Navigator'
 
 @connect(
   state => ({
     navigation: state.navigation,
+    user: state.user,
   })
 )
 export default class AppNavigator extends Component {
@@ -16,7 +18,13 @@ export default class AppNavigator extends Component {
       state: this.props.navigation,
     })
 
-    return <Navigator navigation={navigation} />
+    if (this.props.user.logged) {
+      return (
+        <Navigator navigation={navigation} />
+      )
+    }
+
+    return <LoginScreen />
   }
 }
 

@@ -44,7 +44,7 @@ class FlowerItem extends Component {
             <Text style={styles.title}>{flower.title}</Text>
           </View>
           <View style={[styles.priceSection, selected ? styles.priceSelected : null]}>
-            <Text style={styles.price}>S./ {flower.price}</Text>
+            <Text style={styles.price}>$ {flower.price}</Text>
           </View>
           <View style={[styles.addToCart, selected ? styles.priceSelected : null]}>
             <TouchableOpacity onPress={() => selectFlower(flower)}>
