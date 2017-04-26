@@ -5,11 +5,11 @@ exports[`FlowerItem renders correctly 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#574E6D",
-        "flexDirection": "row",
-        "height": 160,
-        "marginTop": 13.34,
-        "width": 712.5,
+        "backgroundColor": "#fff",
+        "flexDirection": "column",
+        "height": 200,
+        "marginTop": 6.67,
+        "width": 356.25,
       },
       undefined,
     ]
@@ -18,28 +18,33 @@ exports[`FlowerItem renders correctly 1`] = `
   <View
     style={
       Object {
-        "flex": 0.7,
+        "flex": 1,
       }
     }
   >
-    <Image
-      source={
-        Object {
-          "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
+          }
         }
-      }
-      style={
-        Object {
-          "flex": 1,
+        style={
+          Object {
+            "flex": 1,
+          }
         }
-      }
-    />
+      />
+    </TouchableWithoutFeedback>
   </View>
   <View
     style={
       Object {
-        "flex": 0.3,
-        "flexDirection": "column",
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 45,
       }
     }
   >
@@ -47,9 +52,10 @@ exports[`FlowerItem renders correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#4B586E",
-          "flex": 0.7,
+          "flex": 0.55,
+          "height": 45,
+          "justifyContent": "center",
           "paddingLeft": 5,
-          "paddingTop": 5,
         }
       }
     >
@@ -67,18 +73,6 @@ exports[`FlowerItem renders correctly 1`] = `
       >
         foo flower
       </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#fff",
-            "fontFamily": "montserrat",
-            "fontSize": 12,
-          }
-        }
-      />
     </View>
     <View
       style={
@@ -86,7 +80,38 @@ exports[`FlowerItem renders correctly 1`] = `
           Object {
             "alignItems": "center",
             "backgroundColor": "#574E6D",
-            "flex": 0.3,
+            "flex": 0.25,
+            "height": 45,
+            "justifyContent": "center",
+          },
+          null,
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#fff",
+            "fontFamily": "montserratMedium",
+            "fontSize": 16,
+          }
+        }
+      >
+        $ 
+        32
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#43405D",
+            "flex": 0.15,
+            "height": 45,
             "justifyContent": "center",
           },
           null,
@@ -98,21 +123,12 @@ exports[`FlowerItem renders correctly 1`] = `
         focusedOpacity={0.7}
         onPress={[Function]}
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#fff",
-              "fontFamily": "montserratMedium",
-              "fontSize": 16,
-            }
-          }
-        >
-          S./ 
-          32
-        </Text>
+        <Icon
+          allowFontScaling={false}
+          color="#fff"
+          name="add-shopping-cart"
+          size={30}
+        />
       </TouchableOpacity>
     </View>
   </View>

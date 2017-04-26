@@ -50,7 +50,7 @@
     ],
     "collectCoverage": true,
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-navigation)"
+      "node_modules/(?!(jest-)?react-native|expo|@expo/*|exponent|@exponent/*|react)"
     ]
   }
 }

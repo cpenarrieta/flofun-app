@@ -9,7 +9,7 @@ exports[`FlowerList renders correctly 1`] = `
   }
 >
   <View>
-    <ScrollViewMock
+    <ScrollView
       vertical={true}
     >
       <View>
@@ -51,7 +51,7 @@ exports[`FlowerList renders correctly 1`] = `
           selected={false}
         />
       </View>
-    </ScrollViewMock>
+    </ScrollView>
   </View>
 </View>
 `;
