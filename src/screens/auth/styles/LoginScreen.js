@@ -42,11 +42,14 @@ const styles = EStyleSheet.create({
     flex: 1,
     flexDirection: 'row',
   },
-  signUp: {
+  google: {
     backgroundColor: '$purpleColor',
   },
-  signIn: {
+  facebook: {
     backgroundColor: '$purpleDarkColor',
+  },
+  phone: {
+    backgroundColor: '$purpleColor',
   },
 })
 
