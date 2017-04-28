@@ -7,6 +7,11 @@ const styles = EStyleSheet.create({
     alignItems: 'center',
     backgroundColor: '$whiteColor',
   },
+  titleRoot: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   authTitle: {
     fontSize: 30,
     fontFamily: 'montserratBold',
@@ -15,6 +20,11 @@ const styles = EStyleSheet.create({
   },
   phoneRoot: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonRoot: {
+    flex: 2,
   },
 })
 
