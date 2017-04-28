@@ -46,7 +46,7 @@ const styles = EStyleSheet.create({
     backgroundColor: '$purpleColor',
   },
   facebook: {
-    backgroundColor: '$purpleDarkColor',
+    backgroundColor: '$purpleColor',
   },
   phone: {
     backgroundColor: '$purpleColor',

@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-const API_URL = 'https://cbd8058d.ngrok.io/api'
+import { API_URL } from '../constants/secrets'
 
 export const fetchFlowers = async () => {
   try {
