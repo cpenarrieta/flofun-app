@@ -29,7 +29,10 @@ export default class LoginScreen extends Component {
             <TouchableOpacity style={[styles.loginButton, styles.facebook]}>
               <MaterialCommunityIcons name="facebook" size={35} color="#fff" />
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.loginButton, styles.phone]}>
+            <TouchableOpacity
+              style={[styles.loginButton, styles.phone]}
+              onPress={() => this.props.navigation.navigate('PhoneSignUpScreen')}
+            >
               <FontAwesome name="mobile-phone" size={35} color="#fff" />
             </TouchableOpacity>
           </View>

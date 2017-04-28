@@ -3,8 +3,8 @@ import { addNavigationHelpers } from 'react-navigation'
 import { connect } from 'react-redux'
 import { View, StatusBar } from 'react-native'
 
-import { LoginScreen } from '../screens'
 import Navigator from './Navigator'
+import AuthNavigator from './AuthNavigator'
 
 @connect(
   state => ({
@@ -31,7 +31,7 @@ export default class AppNavigator extends Component {
     return (
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="dark-content" />
-        <LoginScreen />
+        <AuthNavigator />
       </View>
     )
   }
