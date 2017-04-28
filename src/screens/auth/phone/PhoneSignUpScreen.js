@@ -23,6 +23,7 @@ export default class PhoneSignUpScreen extends Component {
             inputStyle={{ width, fontSize: 28, textAlign: 'center' }}
             maxLength={10}
             placeholder="Enter your phone"
+            keyboardType="phone-pad"
           />
         </View>
       </View>
