@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import {
   FlowerShopReducer,
-  UserReducer,
+  AuthReducer,
 } from '../screens'
 import navigation from '../routes/navigationReducer'
 
 export default combineReducers({
   flowerShop: FlowerShopReducer,
   navigation,
-  user: UserReducer,
+  auth: AuthReducer,
 })

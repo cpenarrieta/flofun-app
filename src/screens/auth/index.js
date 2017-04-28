@@ -1,9 +1,10 @@
 import LoginScreen from './LoginScreen'
-import PhoneSignUpScreen from './phone/PhoneSignUpScreen'
-import UserReducer from './reducer'
+import { PhoneSignUpScreen, EnterCodeScreen } from './phone'
+import AuthReducer from './reducer'
 
 export {
   LoginScreen,
   PhoneSignUpScreen,
-  UserReducer,
+  EnterCodeScreen,
+  AuthReducer,
 }

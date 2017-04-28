@@ -9,7 +9,7 @@ import AuthNavigator from './AuthNavigator'
 @connect(
   state => ({
     navigation: state.navigation,
-    user: state.user,
+    auth: state.auth,
   })
 )
 export default class AppNavigator extends Component {
@@ -19,7 +19,7 @@ export default class AppNavigator extends Component {
       state: this.props.navigation,
     })
 
-    if (this.props.user.logged) {
+    if (this.props.auth.logged) {
       return (
         <View style={{ flex: 1 }}>
           <StatusBar barStyle="light-content" />
