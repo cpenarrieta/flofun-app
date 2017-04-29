@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Dimensions, Keyboard, TouchableWithoutFeedback, TouchableOpacity } from 'react-native'
+import { View, Text, Keyboard, TouchableWithoutFeedback, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { FormInput, Button } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
@@ -14,7 +14,7 @@ import {
   requestOneTimePassword,
 } from '../../../../constants/api'
 
-const width = Dimensions.get('window').width * 0.6
+// const width = Dimensions.get('window').width * 0.6
 
 @connect(
   state => ({
@@ -41,9 +41,9 @@ export default class PhoneSignUpScreen extends Component {
   // }
 
   static navigationOptions = ({ navigation }) => ({
-    headerStyle: { backgroundColor: Colors.whiteColor },
+    headerStyle: styles.headerStyle,
     headerLeft: (
-      <TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
         <Ionicons
           name="ios-arrow-back"
           size={30}
@@ -70,7 +70,7 @@ export default class PhoneSignUpScreen extends Component {
             <FormInput
               value={phone}
               onChangeText={val => handleChangePhone(val)}
-              inputStyle={{ width, fontSize: 28, textAlign: 'center' }}
+              inputStyle={styles.input}
               maxLength={10}
               placeholder="Enter your phone"
               keyboardType="phone-pad"
@@ -81,7 +81,7 @@ export default class PhoneSignUpScreen extends Component {
               onPress={this.handleSubmit}
               color={Colors.whiteColor}
               backgroundColor={Colors.purpleColor}
-              buttonStyle={{ width }}
+              buttonStyle={styles.buttonStyle}
               fontSize={18}
               title="Get Code"
             />

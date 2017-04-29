@@ -1,4 +1,7 @@
-import { CHANGE_PHONE } from './actions'
+import {
+  CHANGE_PHONE,
+  CHANGE_CODE,
+} from './actions'
 
 const INITIAL_STATE = {
   logged: false,
@@ -16,6 +19,14 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         phoneLogin: { phone },
+      }
+    }
+    case CHANGE_CODE: {
+      const code = action.payload
+
+      return {
+        ...state,
+        phoneLogin: { code },
       }
     }
     default:

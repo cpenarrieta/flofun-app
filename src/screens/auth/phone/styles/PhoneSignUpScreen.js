@@ -1,4 +1,7 @@
 import EStyleSheet from 'react-native-extended-stylesheet'
+import { Dimensions } from 'react-native'
+
+const width = Dimensions.get('window').width * 0.6
 
 const styles = EStyleSheet.create({
   root: {
@@ -25,6 +28,21 @@ const styles = EStyleSheet.create({
   },
   buttonRoot: {
     flex: 2,
+  },
+  input: {
+    width,
+    fontSize: 28,
+    textAlign:
+    'center',
+  },
+  buttonStyle: {
+    width,
+  },
+  goBack: {
+    marginLeft: 10,
+  },
+  headerStyle: {
+    backgroundColor: '$whiteColor',
   },
 })
 
