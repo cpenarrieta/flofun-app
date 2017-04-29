@@ -4,10 +4,13 @@ import {
   START_CREATE_USER,
   DONE_CREATE_USER,
   DONE_VALIDATE_CODE,
+  START_VALIDATE_CODE,
+  PROCESS_ERROR,
 } from './actions'
 
 const INITIAL_STATE = {
   logged: false,
+  loading: false,
   phoneLogin: {
     phone: '',
     code: '',
@@ -39,15 +42,28 @@ export default (state = INITIAL_STATE, action) => {
     case START_CREATE_USER:
       return {
         ...state,
+        loading: true,
       }
     case DONE_CREATE_USER:
       return {
         ...state,
+        loading: false,
+      }
+    case START_VALIDATE_CODE:
+      return {
+        ...state,
+        loading: true,
       }
     case DONE_VALIDATE_CODE:
       return {
         ...state,
         logged: true,
+        loading: false,
+      }
+    case PROCESS_ERROR:
+      return {
+        ...state,
+        loading: false,
       }
     default:
       return state

@@ -8,7 +8,7 @@ export const fetchFlowers = async () => {
     const { data } = await axios.get(`${API_URL}/flower`)
     return data.flowers
   } catch (error) {
-    console.error(error) // eslint-disable-line
+    console.log(error) // eslint-disable-line
   }
 }
 
@@ -17,7 +17,8 @@ export const createUser = async (phone) => {
     const { data } = await axios.post(`${FUNCTIONS_URL}/createUser`, { phone })
     return data
   } catch (error) {
-    console.error(error) // eslint-disable-line
+    console.log(error.response.data) // eslint-disable-line
+    return error.response
   }
 }
 
@@ -26,7 +27,8 @@ export const requestOneTimePassword = async (phone) => {
     const { data } = await axios.post(`${FUNCTIONS_URL}/requestOneTimePassword`, { phone })
     return data
   } catch (error) {
-    console.error(error) // eslint-disable-line
+    console.log(error.response.data) // eslint-disable-line
+    return error.response
   }
 }
 
@@ -35,6 +37,7 @@ export const verifyOneTimePassword = async (phone, code) => {
     const { data } = await axios.post(`${FUNCTIONS_URL}/verifyOneTimePassword`, { phone, code })
     return data
   } catch (error) {
-    console.error(error) // eslint-disable-line
+    console.log(error.response.data) // eslint-disable-line
+    return error.response
   }
 }

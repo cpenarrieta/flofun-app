@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { FormInput, Button } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 
+import LoadingScreen from '../../../commons/LoadingScreen'
 import styles from './styles/PhoneSignUpScreen'
 import Colors from '../../../../constants/colors'
 import {
@@ -14,6 +15,7 @@ import {
 @connect(
   state => ({
     phone: state.auth.phoneLogin.phone,
+    loading: state.auth.loading,
   }),
   {
     handleChangePhone: handleChangePhoneAction,
@@ -40,7 +42,11 @@ export default class PhoneSignUpScreen extends Component {
   }
 
   render() {
-    const { handleChangePhone, phone } = this.props
+    const { handleChangePhone, phone, loading } = this.props
+
+    if (loading) {
+      return <LoadingScreen />
+    }
 
     return (
       <TouchableWithoutFeedback style={styles.root} onPress={Keyboard.dismiss}>
