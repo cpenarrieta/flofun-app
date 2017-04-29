@@ -8,14 +8,17 @@ import styles from './styles/PhoneSignUpScreen'
 import Colors from '../../../../constants/colors'
 import {
   handleChangeCode as handleChangeCodeAction,
+  validateCode as validateCodeAction,
 } from '../actions'
 
 @connect(
   state => ({
     code: state.auth.phoneLogin.code,
+    phone: state.auth.phoneLogin.phone,
   }),
   {
     handleChangeCode: handleChangeCodeAction,
+    validateCode: validateCodeAction,
   }
 )
 export default class EnterCodeScreen extends Component {
@@ -33,7 +36,8 @@ export default class EnterCodeScreen extends Component {
   })
 
   handleSubmit = () => {
-
+    const { phone, code, validateCode } = this.props
+    validateCode(phone, code)
   }
 
   render() {
@@ -50,7 +54,7 @@ export default class EnterCodeScreen extends Component {
               value={code}
               onChangeText={val => handleChangeCode(val)}
               inputStyle={styles.input}
-              maxLength={6}
+              maxLength={4}
               placeholder="Enter your code"
               keyboardType="phone-pad"
             />

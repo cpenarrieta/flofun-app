@@ -8,13 +8,8 @@ import styles from './styles/PhoneSignUpScreen'
 import Colors from '../../../../constants/colors'
 import {
   handleChangePhone as handleChangePhoneAction,
+  createUserAndSendCode as createUserAndSendCodeAction,
 } from '../actions'
-import {
-  createUser,
-  requestOneTimePassword,
-} from '../../../../constants/api'
-
-// const width = Dimensions.get('window').width * 0.6
 
 @connect(
   state => ({
@@ -22,24 +17,10 @@ import {
   }),
   {
     handleChangePhone: handleChangePhoneAction,
+    createUserAndSendCode: createUserAndSendCodeAction,
   }
 )
 export default class PhoneSignUpScreen extends Component {
-  // handleSubmit = async () => {
-  //   try {
-  //     const { phone } = this.props
-
-  //     await createUser(`+1${phone}`)
-  //     const { data } = await requestOneTimePassword(`+1${phone}`)
-
-  //     if (data.success) {
-  //       this.props.navigation.navigate('EnterCodeScreen')
-  //     }
-  //   } catch (err) {
-  //     console.log(err); //eslint-disable-line
-  //   }
-  // }
-
   static navigationOptions = ({ navigation }) => ({
     headerStyle: styles.headerStyle,
     headerLeft: (
@@ -53,8 +34,9 @@ export default class PhoneSignUpScreen extends Component {
     ),
   })
 
-  handleSubmit = () => {
-    this.props.navigation.navigate('EnterCodeScreen')
+  handleSubmit = async () => {
+    const { phone, navigation, createUserAndSendCode } = this.props
+    createUserAndSendCode(phone, navigation)
   }
 
   render() {

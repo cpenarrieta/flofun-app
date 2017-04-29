@@ -1,8 +1,7 @@
 import axios from 'axios'
-import {
-  API_URL,
-  FUNCTIONS_URL,
-} from '../constants/secrets'
+import secretConfig from './secrets'
+
+const { FUNCTIONS_URL, API_URL } = secretConfig
 
 export const fetchFlowers = async () => {
   try {
@@ -15,7 +14,8 @@ export const fetchFlowers = async () => {
 
 export const createUser = async (phone) => {
   try {
-    axios.post(`${FUNCTIONS_URL}/createUser`, { phone });
+    const { data } = await axios.post(`${FUNCTIONS_URL}/createUser`, { phone })
+    return data
   } catch (error) {
     console.error(error) // eslint-disable-line
   }
@@ -23,7 +23,17 @@ export const createUser = async (phone) => {
 
 export const requestOneTimePassword = async (phone) => {
   try {
-    axios.post(`${FUNCTIONS_URL}/requestOneTimePassword`, { phone });
+    const { data } = await axios.post(`${FUNCTIONS_URL}/requestOneTimePassword`, { phone })
+    return data
+  } catch (error) {
+    console.error(error) // eslint-disable-line
+  }
+}
+
+export const verifyOneTimePassword = async (phone, code) => {
+  try {
+    const { data } = await axios.post(`${FUNCTIONS_URL}/verifyOneTimePassword`, { phone, code })
+    return data
   } catch (error) {
     console.error(error) // eslint-disable-line
   }
