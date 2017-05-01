@@ -1,4 +1,4 @@
-import { Alert } from 'react-native'
+import { Alert, AsyncStorage } from 'react-native'
 
 import {
   createUser,
@@ -13,6 +13,7 @@ export const DONE_CREATE_USER = 'DONE_CREATE_USER'
 export const DONE_VALIDATE_CODE = 'DONE_VALIDATE_CODE'
 export const START_VALIDATE_CODE = 'START_VALIDATE_CODE'
 export const PROCESS_ERROR = 'PROCESS_ERROR'
+export const TOKEN_PRESENT = 'TOKEN_PRESENT'
 
 export const handleChangePhone = (phone) => ({
   type: CHANGE_PHONE,
@@ -77,6 +78,7 @@ export const validateCode = (phone, code) => async (dispatch) => {
     const { success, token } = await verifyOneTimePassword(`+1${phone}`, code)
 
     if (success) {
+      await AsyncStorage.multiSet([['token', token], ['phone', phone]])
       dispatch(doneValidateCode(phone, token))
     } else {
       dispatch(processError())
@@ -87,3 +89,7 @@ export const validateCode = (phone, code) => async (dispatch) => {
     Alert.alert('Error', 'Error validating code')
   }
 }
+
+export const tokenIsPresent = () => ({
+  type: TOKEN_PRESENT,
+})

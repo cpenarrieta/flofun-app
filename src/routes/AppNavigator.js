@@ -19,7 +19,7 @@ export default class AppNavigator extends Component {
       state: this.props.navigation,
     })
 
-    if (this.props.auth.logged) {
+    if (this.props.auth.logged || this.props.validToken) {
       return (
         <View style={{ flex: 1 }}>
           <StatusBar barStyle="light-content" />

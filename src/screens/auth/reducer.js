@@ -6,6 +6,7 @@ import {
   DONE_VALIDATE_CODE,
   START_VALIDATE_CODE,
   PROCESS_ERROR,
+  TOKEN_PRESENT,
 } from './actions'
 
 const INITIAL_STATE = {
@@ -64,6 +65,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
+      }
+    case TOKEN_PRESENT:
+      return {
+        ...state,
+        logged: true,
       }
     default:
       return state
