@@ -1,6 +1,6 @@
 import React from 'react'
 import AppNavigator from './routes/AppNavigator'
 
-const Root = ({ validToken }) => <AppNavigator validToken={validToken} />
+const Root = () => <AppNavigator />
 
 export default Root

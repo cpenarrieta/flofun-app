@@ -61,7 +61,7 @@ export const signInWithToken = async () => {
   return success
 }
 
-export const signOut = async () => {
-  await AsyncStorage.removeItem('token')
+export const signOutUser = async () => {
+  await AsyncStorage.multiRemove(['token', 'phone'])
   await firebase.auth().signOut()
 }

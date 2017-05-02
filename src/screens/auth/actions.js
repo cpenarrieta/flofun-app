@@ -14,6 +14,7 @@ export const DONE_VALIDATE_CODE = 'DONE_VALIDATE_CODE'
 export const START_VALIDATE_CODE = 'START_VALIDATE_CODE'
 export const PROCESS_ERROR = 'PROCESS_ERROR'
 export const TOKEN_PRESENT = 'TOKEN_PRESENT'
+export const SIGN_OUT = 'SIGN_OUT'
 
 export const handleChangePhone = (phone) => ({
   type: CHANGE_PHONE,
@@ -66,9 +67,9 @@ export const startValidateCode = () => ({
   type: START_VALIDATE_CODE,
 })
 
-export const doneValidateCode = (phone, token) => ({
+export const doneValidateCode = (phone) => ({
   type: DONE_VALIDATE_CODE,
-  payload: { phone, token },
+  payload: phone,
 })
 
 export const validateCode = (phone, code) => async (dispatch) => {
@@ -79,11 +80,12 @@ export const validateCode = (phone, code) => async (dispatch) => {
 
     if (success) {
       await AsyncStorage.multiSet([['token', token], ['phone', phone]])
-      dispatch(doneValidateCode(phone, token))
-    } else {
-      dispatch(processError())
-      Alert.alert('Error', 'Incorrect Code')
+      dispatch(doneValidateCode(phone))
+      return true
     }
+
+    dispatch(processError())
+    Alert.alert('Error', 'Incorrect Code')
   } catch (err) {
     dispatch(processError())
     Alert.alert('Error', 'Error validating code')
@@ -92,4 +94,8 @@ export const validateCode = (phone, code) => async (dispatch) => {
 
 export const tokenIsPresent = () => ({
   type: TOKEN_PRESENT,
+})
+
+export const signOut = () => ({
+  type: SIGN_OUT,
 })

@@ -37,7 +37,10 @@ export default class EnterCodeScreen extends Component {
 
   handleSubmit = () => {
     const { phone, code, validateCode } = this.props
-    validateCode(phone, code)
+    const success = validateCode(phone, code)
+    if (success) {
+      this.props.navigation.navigate('Main')
+    }
   }
 
   render() {

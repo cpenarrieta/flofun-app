@@ -3,8 +3,20 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons'
 
 import styles from './styles/LoginScreen'
+import { signInWithToken } from '../../../constants/api'
 
 export default class LoginScreen extends Component {
+  componentWillMount() {
+    this.checkToken()
+  }
+
+  async checkToken() {
+    const validToken = await signInWithToken()
+    if (validToken) {
+      this.props.navigation.navigate('Main')
+    }
+  }
+
   render() {
     return (
       <View style={styles.root}>
