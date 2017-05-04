@@ -1,23 +1,49 @@
+import Expo from 'expo'
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons'
+import { connect } from 'react-redux'
 
 import styles from './styles/LoginScreen'
-import { signInWithToken } from '../../../constants/api'
+import { signInWithToken as signInWithTokenAction } from './actions'
 
+@connect(
+  state => ({
+    logged: state.auth.logged,
+  }),
+  {
+    signInWithToken: signInWithTokenAction,
+  }
+)
 export default class LoginScreen extends Component {
+  state = { loading: true }
+
   componentWillMount() {
     this.checkToken()
   }
 
-  async checkToken() {
-    const validToken = await signInWithToken()
-    if (validToken) {
+  componentWillReceiveProps(nextProps) {
+    this.onAuthComplete(nextProps)
+  }
+
+  onAuthComplete(props) {
+    if (props.logged) {
       this.props.navigation.navigate('Main')
+    } else {
+      this.setState({ loading: false })
     }
   }
 
+  async checkToken() {
+    await this.props.signInWithToken()
+    this.setState({ loading: false })
+  }
+
   render() {
+    if (this.state.loading) {
+      return <Expo.AppLoading />
+    }
+
     return (
       <View style={styles.root}>
         <View style={styles.root}>

@@ -45,22 +45,6 @@ export const verifyOneTimePassword = async (phone, code) => {
   }
 }
 
-export const signInWithToken = async () => {
-  const token = await AsyncStorage.getItem('token')
-  if (!token) return false
-
-  let success = false
-  await firebase.auth().signInWithCustomToken(token)
-    .then(user => { // eslint-disable-line
-      success = true
-    })
-    .catch(err => {
-      console.log(err) // eslint-disable-line
-      success = false
-    })
-  return success
-}
-
 export const signOutUser = async () => {
   await AsyncStorage.multiRemove(['token', 'phone'])
   await firebase.auth().signOut()

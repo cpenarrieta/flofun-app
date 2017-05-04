@@ -29,6 +29,7 @@ export default StackNavigator({
     },
   },
 }, {
+  lazy: true,
   mode: 'modal',
   navigationOptions: {
     cardStack: {

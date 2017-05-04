@@ -1,4 +1,5 @@
 import { Alert, AsyncStorage } from 'react-native'
+import firebase from 'firebase'
 
 import {
   createUser,
@@ -72,7 +73,7 @@ export const doneValidateCode = (phone) => ({
   payload: phone,
 })
 
-export const validateCode = (phone, code) => async (dispatch) => {
+export const validateCode = (phone, code) => async dispatch => {
   dispatch(startValidateCode())
 
   try {
@@ -81,15 +82,28 @@ export const validateCode = (phone, code) => async (dispatch) => {
     if (success) {
       await AsyncStorage.multiSet([['token', token], ['phone', phone]])
       dispatch(doneValidateCode(phone))
-      return true
+    } else {
+      dispatch(processError())
+      Alert.alert('Error', 'Incorrect Code')
     }
-
-    dispatch(processError())
-    Alert.alert('Error', 'Incorrect Code')
   } catch (err) {
     dispatch(processError())
     Alert.alert('Error', 'Error validating code')
   }
+}
+
+export const signInWithToken = () => async dispatch => {
+  const token = await AsyncStorage.getItem('token')
+  if (!token) return
+
+  await firebase.auth().signInWithCustomToken(token)
+    .then(user => { // eslint-disable-line
+      dispatch(tokenIsPresent())
+    })
+    .catch(err => {
+      console.log(err) // eslint-disable-line
+      dispatch(signOut())
+    })
 }
 
 export const tokenIsPresent = () => ({
