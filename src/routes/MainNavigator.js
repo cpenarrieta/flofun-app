@@ -1,5 +1,7 @@
 import { StackNavigator, DrawerNavigator } from 'react-navigation'
+
 import HomeNavigator from './HomeNavigator'
+import Colors from '../../constants/colors'
 
 import {
   LoginScreen,
@@ -23,6 +25,15 @@ export default StackNavigator({
       Home: { screen: HomeNavigator },
       Profile: { screen: ProfileScreen },
       SignOut: { screen: SignOut },
+    }, {
+      contentOptions: {
+        activeBackgroundColor: Colors.purpleDarkColor,
+        labelStyle: {
+          fontSize: 20,
+        },
+        activeTintColor: Colors.whiteColor,
+        inactiveTintColor: Colors.purpleDarkColor,
+      },
     }),
     navigationOptions: {
       header: null,

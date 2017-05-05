@@ -12,6 +12,13 @@ export default class ShippingScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'flofun',
     drawerLabel: 'Home',
+    drawerIcon: ({ tintColor }) => (
+      <FontAwesome
+        name="map-marker"
+        size={20}
+        color={tintColor}
+      />
+    ),
     ...HeaderStack(navigation.goBack, { hideBack: true }),
   })
 

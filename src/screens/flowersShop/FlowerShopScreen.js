@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import ImageGallery from '@expo/react-native-image-gallery'
+import { FontAwesome } from '@expo/vector-icons'
 
 import { FlowerList, Footer } from './components'
 import LoadingScreen from '../../commons/LoadingScreen'
@@ -26,8 +27,15 @@ import {
 )
 class FlowerShopScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
-    drawerLabel: 'Home',
+    drawerLabel: 'Select Flower',
     title: 'Select Flower',
+    drawerIcon: ({ tintColor }) => (
+      <FontAwesome
+        name="shopping-cart"
+        size={20}
+        color={tintColor}
+      />
+    ),
     ...HeaderStack(navigation.goBack),
   })
 

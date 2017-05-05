@@ -2,13 +2,21 @@ import React, { Component } from 'react'
 import { Text, View, StatusBar } from 'react-native'
 import { Button } from 'react-native-elements'
 import { NavigationActions } from 'react-navigation'
+import { MaterialIcons } from '@expo/vector-icons'
 
 import HeaderStack from '../../commons/HeaderStack'
 
 export default class PaymentScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
-    drawerLabel: 'Home',
+    drawerLabel: 'Payment',
     title: 'Payment',
+    drawerIcon: ({ tintColor }) => (
+      <MaterialIcons
+        name="payment"
+        size={20}
+        color={tintColor}
+      />
+    ),
     ...HeaderStack(navigation.goBack),
   })
 

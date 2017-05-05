@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import { Text, View, StatusBar } from 'react-native'
 import { Button } from 'react-native-elements'
+import { MaterialIcons } from '@expo/vector-icons'
 
 import HeaderStack from '../../commons/HeaderStack'
 
 export default class ContactDetailsScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Provide Message',
-    drawerLabel: 'Home',
+    drawerLabel: 'Provide Message',
+    drawerIcon: ({ tintColor }) => (
+      <MaterialIcons
+        name="message"
+        size={20}
+        color={tintColor}
+      />
+    ),
     ...HeaderStack(navigation.goBack),
   })
 
