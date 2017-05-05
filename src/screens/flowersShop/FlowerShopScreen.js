@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import ImageGallery from '@expo/react-native-image-gallery'
 
@@ -56,6 +56,7 @@ class FlowerShopScreen extends Component {
 
     return (
       <View style={styles.root}>
+        <StatusBar barStyle="light-content" />
         <View style={styles.contentContainer}>
           <FlowerList
             flowers={data}

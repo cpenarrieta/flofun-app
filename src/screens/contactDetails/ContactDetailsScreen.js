@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StatusBar } from 'react-native'
 import { Button } from 'react-native-elements'
 
 import HeaderStack from '../../commons/HeaderStack'
@@ -13,6 +13,7 @@ export default class ContactDetailsScreen extends Component {
   render() {
     return (
       <View>
+        <StatusBar barStyle="light-content" />
         <Text>Provide Message</Text>
         <Button
           raised

@@ -1,6 +1,8 @@
 import { Alert, AsyncStorage } from 'react-native'
-import firebase from 'firebase'
+import { Facebook } from 'expo'
+import axios from 'axios'
 
+import secrets from '../../../constants/secrets'
 import {
   createUser,
   requestOneTimePassword,
@@ -16,6 +18,8 @@ export const START_VALIDATE_CODE = 'START_VALIDATE_CODE'
 export const PROCESS_ERROR = 'PROCESS_ERROR'
 export const TOKEN_PRESENT = 'TOKEN_PRESENT'
 export const SIGN_OUT = 'SIGN_OUT'
+export const FACEBOOK_LOGIN_FAIL = 'FACEBOOK_LOGIN_FAIL'
+export const FACEBOOK_LOGIN_SUCCESS = 'FACEBOOK_LOGIN_SUCCESS'
 
 export const handleChangePhone = (phone) => ({
   type: CHANGE_PHONE,
@@ -44,7 +48,7 @@ export const createUserAndSendCode = (phone, navigation) => async (dispatch) => 
   dispatch(startCreateUserAndSendCode())
 
   try {
-    const { success: createUserSuccess } = await createUser(`+1${phone}`)
+    const { success: createUserSuccess } = await createUser({ uid: `+1${phone}`, source: 'phone' })
     if (createUserSuccess) {
       const { success: requestOneTimePasswordSuccess } = await requestOneTimePassword(`+1${phone}`)
       if (requestOneTimePasswordSuccess) {
@@ -96,14 +100,7 @@ export const signInWithToken = () => async dispatch => {
   const token = await AsyncStorage.getItem('token')
   if (!token) return
 
-  await firebase.auth().signInWithCustomToken(token)
-    .then(user => { // eslint-disable-line
-      dispatch(tokenIsPresent())
-    })
-    .catch(err => {
-      console.log(err) // eslint-disable-line
-      dispatch(signOut())
-    })
+  dispatch(tokenIsPresent())
 }
 
 export const tokenIsPresent = () => ({
@@ -113,3 +110,19 @@ export const tokenIsPresent = () => ({
 export const signOut = () => ({
   type: SIGN_OUT,
 })
+
+export const doFacebookLogin = () => async dispatch => {
+  const { type, token } = await Facebook.logInWithReadPermissionsAsync(secrets.facebookAppId, {
+    permissions: ['public_profile'],
+  })
+
+  if (type === 'cancel') {
+    return dispatch(signOut())
+  }
+
+  const { data } = await axios.get(`https://graph.facebook.com/me?access_token=${token}`)
+  await createUser({ uid: data.id, source: 'facebook', name: data.name })
+
+  await AsyncStorage.setItem('token', token)
+  dispatch(tokenIsPresent())
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, StatusBar } from 'react-native'
 import { MapView } from 'expo'
 import { FontAwesome } from '@expo/vector-icons'
 
@@ -41,6 +41,7 @@ export default class ShippingScreen extends Component {
 
     return (
       <View style={styles.root}>
+        <StatusBar barStyle="light-content" />
         <MapView
           style={styles.mapView}
           showsMyLocationButton

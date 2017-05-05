@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StatusBar } from 'react-native'
 
 import HeaderStack from '../../commons/HeaderStack'
 
@@ -12,6 +12,7 @@ export default class OrderStatusScreen extends Component {
   render() {
     return (
       <View>
+        <StatusBar barStyle="light-content" />
         <Text>Order Status</Text>
       </View>
     )

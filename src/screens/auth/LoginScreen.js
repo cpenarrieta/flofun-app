@@ -5,7 +5,10 @@ import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 
 import styles from './styles/LoginScreen'
-import { signInWithToken as signInWithTokenAction } from './actions'
+import {
+  signInWithToken as signInWithTokenAction,
+  doFacebookLogin as doFacebookLoginAction,
+} from './actions'
 
 @connect(
   state => ({
@@ -13,6 +16,7 @@ import { signInWithToken as signInWithTokenAction } from './actions'
   }),
   {
     signInWithToken: signInWithTokenAction,
+    doFacebookLogin: doFacebookLoginAction,
   }
 )
 export default class LoginScreen extends Component {
@@ -64,7 +68,10 @@ export default class LoginScreen extends Component {
             <TouchableOpacity style={[styles.loginButton, styles.google]}>
               <MaterialCommunityIcons name="google" size={35} color="#fff" />
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.loginButton, styles.facebook]}>
+            <TouchableOpacity
+              style={[styles.loginButton, styles.facebook]}
+              onPress={() => this.props.doFacebookLogin()}
+            >
               <MaterialCommunityIcons name="facebook" size={35} color="#fff" />
             </TouchableOpacity>
             <TouchableOpacity
