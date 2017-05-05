@@ -48,7 +48,7 @@ export const createUserAndSendCode = (phone, navigation) => async (dispatch) => 
   dispatch(startCreateUserAndSendCode())
 
   try {
-    const { success: createUserSuccess } = await createUser({ uid: `+1${phone}`, source: 'phone' })
+    const { success: createUserSuccess } = await createUser({ uid: `+1${phone}`, source: 'phone', phone: `+1${phone}` })
     if (createUserSuccess) {
       const { success: requestOneTimePasswordSuccess } = await requestOneTimePassword(`+1${phone}`)
       if (requestOneTimePasswordSuccess) {
