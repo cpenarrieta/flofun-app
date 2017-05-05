@@ -5,6 +5,7 @@ import HeaderStack from '../../commons/HeaderStack'
 
 export default class OrderStatusScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
+    drawerLabel: 'Home',
     title: 'Order Status',
     ...HeaderStack(navigation.goBack, { hideBack: true }),
   })

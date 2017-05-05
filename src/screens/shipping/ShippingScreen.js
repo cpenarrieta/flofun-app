@@ -11,6 +11,7 @@ import Colors from '../../../constants/colors'
 export default class ShippingScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'flofun',
+    drawerLabel: 'Home',
     ...HeaderStack(navigation.goBack, { hideBack: true }),
   })
 

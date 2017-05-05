@@ -7,6 +7,7 @@ import HeaderStack from '../../commons/HeaderStack'
 
 export default class PaymentScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
+    drawerLabel: 'Home',
     title: 'Payment',
     ...HeaderStack(navigation.goBack),
   })

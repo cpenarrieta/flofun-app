@@ -26,6 +26,7 @@ import {
 )
 class FlowerShopScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
+    drawerLabel: 'Home',
     title: 'Select Flower',
     ...HeaderStack(navigation.goBack),
   })

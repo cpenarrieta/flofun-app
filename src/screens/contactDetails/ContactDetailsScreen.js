@@ -7,6 +7,7 @@ import HeaderStack from '../../commons/HeaderStack'
 export default class ContactDetailsScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Provide Message',
+    drawerLabel: 'Home',
     ...HeaderStack(navigation.goBack),
   })
 
