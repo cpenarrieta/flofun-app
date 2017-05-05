@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { Text, View, StatusBar } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
-import { Header } from '../../commons'
+import HeaderStack from '../../commons/HeaderStack'
 import styles from './styles/ProfileScreen'
 
 export default class ProfileScreen extends Component {
-  static navigationOptions = () => ({
+  static navigationOptions = ({ navigation }) => ({
     drawerLabel: 'Profile',
+    title: 'Profile',
     drawerIcon: ({ tintColor }) => (
       <FontAwesome
         name="user"
@@ -15,13 +16,13 @@ export default class ProfileScreen extends Component {
         color={tintColor}
       />
     ),
+    ...HeaderStack(navigation, { hideBack: true }),
   })
 
   render() {
     return (
       <View style={styles.root}>
         <StatusBar barStyle="light-content" />
-        <Header title={'Profile'} />
         <View style={styles.content}>
           <Text>Profile page</Text>
         </View>

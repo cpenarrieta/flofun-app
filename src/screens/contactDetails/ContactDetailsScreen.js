@@ -16,7 +16,7 @@ export default class ContactDetailsScreen extends Component {
         color={tintColor}
       />
     ),
-    ...HeaderStack(navigation.goBack),
+    ...HeaderStack(navigation),
   })
 
   render() {

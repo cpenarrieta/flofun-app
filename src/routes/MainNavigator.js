@@ -23,7 +23,7 @@ export default StackNavigator({
   Main: {
     screen: DrawerNavigator({
       Home: { screen: HomeNavigator },
-      Profile: { screen: ProfileScreen },
+      Profile: { screen: StackNavigator({ ProfileScreen: { screen: ProfileScreen } }) },
       SignOut: { screen: SignOut },
     }, {
       contentOptions: {

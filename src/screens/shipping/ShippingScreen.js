@@ -19,7 +19,7 @@ export default class ShippingScreen extends Component {
         color={tintColor}
       />
     ),
-    ...HeaderStack(navigation.goBack, { hideBack: true }),
+    ...HeaderStack(navigation, { hideBack: true }),
   })
 
   state = {

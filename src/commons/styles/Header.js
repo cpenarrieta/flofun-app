@@ -15,6 +15,9 @@ const styles = EStyleSheet.create({
   iconBack: {
     marginLeft: '3%',
   },
+  menu: {
+    marginLeft: '4%',
+  },
 })
 
 export default styles

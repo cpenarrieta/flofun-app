@@ -36,7 +36,7 @@ class FlowerShopScreen extends Component {
         color={tintColor}
       />
     ),
-    ...HeaderStack(navigation.goBack),
+    ...HeaderStack(navigation),
   })
 
   componentDidMount() {

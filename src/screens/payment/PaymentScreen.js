@@ -17,7 +17,7 @@ export default class PaymentScreen extends Component {
         color={tintColor}
       />
     ),
-    ...HeaderStack(navigation.goBack),
+    ...HeaderStack(navigation),
   })
 
   render() {

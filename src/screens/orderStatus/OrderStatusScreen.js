@@ -15,7 +15,7 @@ export default class OrderStatusScreen extends Component {
         color={tintColor}
       />
     ),
-    ...HeaderStack(navigation.goBack, { hideBack: true }),
+    ...HeaderStack(navigation, { hideBack: true }),
   })
 
   render() {
