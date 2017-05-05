@@ -14,9 +14,13 @@ const styles = EStyleSheet.create({
   },
   iconBack: {
     marginLeft: '3%',
+    marginRight: '1%',
   },
   menu: {
-    marginLeft: '4%',
+    marginLeft: '3%',
+  },
+  headerLeft: {
+    flexDirection: 'row',
   },
 })
 

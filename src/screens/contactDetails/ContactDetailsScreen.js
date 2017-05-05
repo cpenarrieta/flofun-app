@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
-import { Text, View, StatusBar } from 'react-native'
-import { Button } from 'react-native-elements'
+import { View, StatusBar } from 'react-native'
+import { Button, FormInput } from 'react-native-elements'
+import { connect } from 'react-redux'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import HeaderStack from '../../commons/HeaderStack'
 
+@connect(
+  state => ({
+    selectedFlowers: state.flowerShop.selectedFlowers,
+  }),
+  {}
+)
 export default class ContactDetailsScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Provide Message',
@@ -23,11 +30,17 @@ export default class ContactDetailsScreen extends Component {
     return (
       <View>
         <StatusBar barStyle="light-content" />
-        <Text>Provide Message</Text>
+        <FormInput
+          // value={code}
+          // onChangeText={val => handleChangeCode(val)}
+          // inputStyle={styles.input}
+          maxLength={200}
+          placeholder="Sender Full Name"
+          // keyboardType="phone-pad"
+        />
         <Button
           raised
           fontFamily="montserrat"
-          onPress={() => console.log('press button')}
           title="continue"
           onPress={() => this.props.navigation.navigate('Payment')}
         />

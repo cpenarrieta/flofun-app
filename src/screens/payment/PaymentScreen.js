@@ -35,7 +35,6 @@ export default class PaymentScreen extends Component {
         <Button
           raised
           fontFamily="montserrat"
-          onPress={() => console.log('press button')}
           title="continue"
           onPress={() => this.props.navigation.dispatch(resetAction)}
         />

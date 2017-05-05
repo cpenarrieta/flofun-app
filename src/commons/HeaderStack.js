@@ -26,7 +26,7 @@ const HeaderStack = (navigation, { hideBack } = {}) => {
   )
 
   const headerLeft = (
-    <View style={{ flexDirection: 'row' }}>
+    <View style={styles.headerLeft}>
       {arrowBack}
       <TouchableOpacity style={styles.menu} onPress={() => navigation.navigate('DrawerOpen')}>
         <Entypo
