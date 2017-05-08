@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, TouchableOpacity, Image, TouchableWithoutFeedback } from 'react-native'
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons'
+
 import styles from './styles/Footer'
 
 const Footer = ({ selectedFlowers, removeSelectedFlower, navigate }) => (

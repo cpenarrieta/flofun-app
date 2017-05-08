@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, StatusBar } from 'react-native'
+import { View, StatusBar } from 'react-native'
 import { MapView } from 'expo'
 import { FontAwesome } from '@expo/vector-icons'
 
+import Footer from '../../commons/Footer'
 import HeaderStack from '../../commons/HeaderStack'
 import LoadingScreen from '../../commons/LoadingScreen'
 import styles from './styles/ShippingScreen'
@@ -66,14 +67,8 @@ export default class ShippingScreen extends Component {
             pinColor={Colors.purpleDarkColor}
             draggable
           />
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('FlowerShop')}>
-            <FontAwesome
-              name="arrow-right"
-              size={40}
-              color="#fff"
-            />
-          </TouchableOpacity>
         </MapView>
+        <Footer nextCallback={() => this.props.navigation.navigate('FlowerShop')} />
       </View>
     )
   }
