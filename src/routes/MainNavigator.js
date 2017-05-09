@@ -37,14 +37,14 @@ export default StackNavigator({
     }),
     navigationOptions: {
       header: null,
+      gesturesEnabled: false,
+
     },
   },
 }, {
   lazy: true,
   mode: 'modal',
   navigationOptions: {
-    cardStack: {
-      gesturesEnabled: false,
-    },
+    gesturesEnabled: false,
   },
 })

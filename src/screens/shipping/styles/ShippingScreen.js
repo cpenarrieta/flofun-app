@@ -8,6 +8,11 @@ const styles = EStyleSheet.create({
   mapView: {
     flex: 1,
   },
+  addressText: {
+    fontSize: 14,
+    fontFamily: 'montserrat',
+    color: '$whiteColor',
+  },
 })
 
 export default styles

@@ -32,8 +32,8 @@ const styles = EStyleSheet.create({
   input: {
     width,
     fontSize: 28,
-    textAlign:
-    'center',
+    textAlign: 'center',
+    fontFamily: 'montserrat',
   },
   buttonStyle: {
     width,

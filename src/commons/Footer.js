@@ -6,11 +6,13 @@ import styles from './styles/Footer'
 
 export default class Footer extends Component {
   render() {
-    const { nextCallback } = this.props
+    const { nextCallback, leftContainer } = this.props
 
     return (
       <View style={styles.root}>
-        <View style={styles.bottomLeft} />
+        <View style={styles.bottomLeft}>
+          {leftContainer || null }
+        </View>
         <View style={styles.bottomRight}>
           <TouchableOpacity onPress={() => nextCallback()}>
             <FontAwesome

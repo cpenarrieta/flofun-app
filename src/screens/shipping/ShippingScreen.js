@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StatusBar } from 'react-native'
+import { View, StatusBar, Text } from 'react-native'
 import { MapView } from 'expo'
 import { FontAwesome } from '@expo/vector-icons'
 
@@ -48,6 +48,10 @@ export default class ShippingScreen extends Component {
       return <LoadingScreen />
     }
 
+    const leftContainer = (
+      <Text style={styles.addressText}>201-2875 Osoyoos Crescent, Vancouver, BC, V6T 2G3</Text>
+    )
+
     return (
       <View style={styles.root}>
         <StatusBar barStyle="light-content" />
@@ -68,7 +72,10 @@ export default class ShippingScreen extends Component {
             draggable
           />
         </MapView>
-        <Footer nextCallback={() => this.props.navigation.navigate('FlowerShop')} />
+        <Footer
+          nextCallback={() => this.props.navigation.navigate('FlowerShop')}
+          leftContainer={leftContainer}
+        />
       </View>
     )
   }

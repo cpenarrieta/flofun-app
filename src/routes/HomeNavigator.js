@@ -17,8 +17,6 @@ export default StackNavigator({
 }, {
   mode: 'modal',
   navigationOptions: {
-    cardStack: {
-      gesturesEnabled: false,
-    },
+    gesturesEnabled: false,
   },
 })
