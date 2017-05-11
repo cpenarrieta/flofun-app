@@ -31,16 +31,16 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "codecov": "~2.1.0",
+    "codecov": "~2.2.0",
     "enzyme": "~2.8.2",
     "enzyme-to-json": "~1.5.1",
     "eslint": "^3.19.0",
-    "eslint-config-equimper": "~1.6.3",
-    "jest": "~19.0.2",
+    "eslint-config-equimper": "~1.6.4",
+    "jest": "~20.0.1",
     "jest-expo": "~0.4.0",
     "react-addons-test-utils": "~15.5.1",
     "react-dom": "~15.4.0",
-    "react-native-debugger-open": "~0.3.5",
+    "react-native-debugger-open": "~0.3.8",
     "redux-logger": "~3.0.1"
   },
   "jest": {
