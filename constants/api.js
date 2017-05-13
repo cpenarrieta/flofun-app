@@ -1,5 +1,4 @@
 import { AsyncStorage } from 'react-native'
-import firebase from 'firebase'
 import axios from 'axios'
 
 import secretConfig from './secrets'
@@ -47,5 +46,4 @@ export const verifyOneTimePassword = async (phone, code) => {
 
 export const signOutUser = async () => {
   await AsyncStorage.multiRemove(['token', 'phone'])
-  await firebase.auth().signOut()
 }
