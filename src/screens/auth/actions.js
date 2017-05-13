@@ -1,6 +1,5 @@
 import { Alert, AsyncStorage } from 'react-native'
 import { Facebook } from 'expo'
-import axios from 'axios'
 
 import secrets from '../../../constants/secrets'
 import {
@@ -120,9 +119,11 @@ export const doFacebookLogin = () => async dispatch => {
     return dispatch(signOut())
   }
 
-  const { data } = await axios.get(`https://graph.facebook.com/me?access_token=${token}`)
-  await createUser({ uid: data.id, source: 'facebook', name: data.name })
+  const { token: apiToken, success } = await createUser({ token }, 'facebook')
+  if (success) {
+    await AsyncStorage.setItem('token', apiToken)
+    return dispatch(tokenIsPresent())
+  }
 
-  await AsyncStorage.setItem('token', token)
-  dispatch(tokenIsPresent())
+  return dispatch(signOut())
 }

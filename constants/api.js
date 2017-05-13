@@ -14,9 +14,9 @@ export const fetchFlowers = async () => {
   }
 }
 
-export const createUser = async (user) => {
+export const createUser = async (user, provider) => {
   try {
-    const { data } = await axios.post(`${FUNCTIONS_URL}/createUser`, user)
+    const { data } = await axios.post(`${API_URL}/auth/${provider}`, user)
     return data
   } catch (error) {
     console.log(error.response.data) // eslint-disable-line
