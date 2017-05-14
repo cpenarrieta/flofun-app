@@ -17,7 +17,7 @@ export const DONE_CREATE_USER = 'DONE_CREATE_USER'
 export const DONE_VALIDATE_CODE = 'DONE_VALIDATE_CODE'
 export const START_VALIDATE_CODE = 'START_VALIDATE_CODE'
 export const PROCESS_ERROR = 'PROCESS_ERROR'
-export const TOKEN_PRESENT = 'TOKEN_PRESENT'
+export const TOKEN_VALID = 'TOKEN_VALID'
 export const SIGN_OUT = 'SIGN_OUT'
 export const FACEBOOK_LOGIN_FAIL = 'FACEBOOK_LOGIN_FAIL'
 export const FACEBOOK_LOGIN_SUCCESS = 'FACEBOOK_LOGIN_SUCCESS'
@@ -106,11 +106,12 @@ export const signInWithToken = () => async dispatch => {
     return await signOutUser()
   }
 
-  dispatch(tokenIsPresent())
+  dispatch(tokenIsValid(user))
 }
 
-export const tokenIsPresent = () => ({
-  type: TOKEN_PRESENT,
+export const tokenIsValid = (user) => ({
+  type: TOKEN_VALID,
+  user,
 })
 
 export const signOut = () => ({

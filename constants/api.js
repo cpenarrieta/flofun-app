@@ -51,8 +51,8 @@ export const signOutUser = async () => {
 export const currentUser = async token => {
   axios.defaults.headers.common.Authorization = token
   try {
-    const user = await axios.post(`${API_URL}/me/`)
-    return user
+    const { data } = await axios.post(`${API_URL}/me/`)
+    return data
   } catch (error) {
     console.log(error) // eslint-disable-line
     return false

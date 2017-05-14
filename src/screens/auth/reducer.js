@@ -6,13 +6,14 @@ import {
   DONE_VALIDATE_CODE,
   START_VALIDATE_CODE,
   PROCESS_ERROR,
-  TOKEN_PRESENT,
+  TOKEN_VALID,
   SIGN_OUT,
 } from './actions'
 
 const INITIAL_STATE = {
   logged: false,
   loading: false,
+  user: {},
   phone: '',
   phoneLogin: {
     phone: '',
@@ -69,10 +70,11 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
       }
-    case TOKEN_PRESENT:
+    case TOKEN_VALID:
       return {
         ...state,
         logged: true,
+        user: action.user,
       }
     case SIGN_OUT:
       return {
