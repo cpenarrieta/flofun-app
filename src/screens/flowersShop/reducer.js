@@ -19,11 +19,9 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case `${FETCH_FLOWERS}_PENDING`:
-      return INITIAL_STATE
     case `${FETCH_FLOWERS}_FULFILLED`:
       return {
-        selectedFlowers: [],
+        ...state,
         flowers: {
           data: action.payload,
           isFetched: true,
@@ -35,7 +33,7 @@ export default (state = INITIAL_STATE, action) => {
       }
     case `${FETCH_FLOWERS}_REJECT`:
       return {
-        selectedFlowers: [],
+        ...state,
         flowers: {
           data: [],
           isFetched: true,
