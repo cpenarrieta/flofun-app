@@ -47,3 +47,14 @@ export const verifyOneTimePassword = async (phone, code) => {
 export const signOutUser = async () => {
   await AsyncStorage.multiRemove(['token', 'phone'])
 }
+
+export const currentUser = async token => {
+  axios.defaults.headers.common.Authorization = token
+  try {
+    const user = await axios.post(`${API_URL}/me/`)
+    return user
+  } catch (error) {
+    console.log(error) // eslint-disable-line
+    return false
+  }
+}

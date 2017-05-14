@@ -6,6 +6,8 @@ import {
   createUser,
   requestOneTimePassword,
   verifyOneTimePassword,
+  currentUser,
+  signOutUser,
 } from '../../../constants/api'
 
 export const CHANGE_PHONE = 'CHANGE_PHONE'
@@ -98,6 +100,11 @@ export const validateCode = (phone, code) => async dispatch => {
 export const signInWithToken = () => async dispatch => {
   const token = await AsyncStorage.getItem('token')
   if (!token) return
+
+  const user = await currentUser(token)
+  if (!user) {
+    return await signOutUser()
+  }
 
   dispatch(tokenIsPresent())
 }
