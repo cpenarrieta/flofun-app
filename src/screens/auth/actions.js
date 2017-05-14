@@ -1,5 +1,5 @@
 import { Alert, AsyncStorage } from 'react-native'
-import { Facebook } from 'expo'
+import { Facebook, Google } from 'expo'
 
 import secrets from '../../../constants/secrets'
 import {
@@ -130,7 +130,27 @@ export const doFacebookLogin = () => async dispatch => {
   const { token: apiToken, success } = await createUser({ token }, 'facebook')
   if (success) {
     await AsyncStorage.setItem('token', apiToken)
-    return dispatch(tokenIsPresent())
+    return dispatch(tokenIsValid())
+  }
+
+  return dispatch(signOut())
+}
+
+export const doGoogleLogin = () => async dispatch => {
+  const { type, accessToken } = await Google.logInAsync({
+    androidClientId: secrets.googleTokenAndroid,
+    iosClientId: secrets.googleTokenIos,
+    scopes: ['profile', 'email'],
+  })
+
+  if (type === 'cancel') {
+    return dispatch(signOut())
+  }
+
+  const { token: apiToken, success } = await createUser({ token: accessToken }, 'google')
+  if (success) {
+    await AsyncStorage.setItem('token', apiToken)
+    return dispatch(tokenIsValid())
   }
 
   return dispatch(signOut())

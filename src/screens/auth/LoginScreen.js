@@ -8,6 +8,7 @@ import styles from './styles/LoginScreen'
 import {
   signInWithToken as signInWithTokenAction,
   doFacebookLogin as doFacebookLoginAction,
+  doGoogleLogin as doGoogleLoginAction,
 } from './actions'
 
 @connect(
@@ -17,6 +18,7 @@ import {
   {
     signInWithToken: signInWithTokenAction,
     doFacebookLogin: doFacebookLoginAction,
+    doGoogleLogin: doGoogleLoginAction,
   }
 )
 export default class LoginScreen extends Component {
@@ -65,7 +67,10 @@ export default class LoginScreen extends Component {
             </View>
           </View>
           <View style={styles.bottomButtonWrapper}>
-            <TouchableOpacity style={[styles.loginButton, styles.google]}>
+            <TouchableOpacity
+              style={[styles.loginButton, styles.google]}
+              onPress={() => this.props.doGoogleLogin()}
+            >
               <MaterialCommunityIcons name="google" size={35} color="#fff" />
             </TouchableOpacity>
             <TouchableOpacity
