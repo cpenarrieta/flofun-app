@@ -62,7 +62,7 @@ export default class LoginScreen extends Component {
             </View>
             <View style={styles.root}>
               <Text style={styles.authWelcomeText}>
-                Order your sympathy flowers instantly
+                Order sympathy flowers instantly
               </Text>
             </View>
           </View>
