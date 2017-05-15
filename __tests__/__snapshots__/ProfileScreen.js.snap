@@ -4,14 +4,15 @@ exports[`ProfileScreen renders correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#DDDDDD",
       "flex": 1,
       "justifyContent": "center",
     }
   }
 >
-  <Header
-    title="Profile"
+  <StatusBar
+    animated={false}
+    barStyle="light-content"
+    showHideTransition="fade"
   />
   <View
     style={
@@ -24,12 +25,6 @@ exports[`ProfileScreen renders correctly 1`] = `
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      style={
-        Object {
-          "backgroundColor": "blue",
-          "color": "red",
-        }
-      }
     >
       Profile page
     </Text>

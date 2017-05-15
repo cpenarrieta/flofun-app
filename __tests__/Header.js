@@ -1,10 +1,7 @@
 import 'react-native'
-import React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Colors from '../constants/colors'
-import { Header } from '../src/commons'
+import HeaderStack from '../src/commons/HeaderStack'
 
 beforeAll(() => {
   EStyleSheet.build(Colors)
@@ -12,10 +9,6 @@ beforeAll(() => {
 
 describe('Header', () => {
   test('renders correctly', () => {
-    const header = shallow(
-      <Header title='foo test' />
-    )
-
-    expect(toJson(header)).toMatchSnapshot()
+    expect(HeaderStack()).toMatchSnapshot()
   })
 })
