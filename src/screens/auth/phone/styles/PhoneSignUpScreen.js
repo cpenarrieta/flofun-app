@@ -31,7 +31,7 @@ const styles = EStyleSheet.create({
   },
   input: {
     width,
-    fontSize: 28,
+    fontSize: 24,
     textAlign: 'center',
     fontFamily: 'montserrat',
   },

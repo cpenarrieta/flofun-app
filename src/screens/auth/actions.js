@@ -4,8 +4,7 @@ import { Facebook, Google } from 'expo'
 import secrets from '../../../constants/secrets'
 import {
   createUser,
-  requestOneTimePassword,
-  verifyOneTimePassword,
+  validateCode as validateCodeApi,
   currentUser,
   signOutUser,
 } from '../../../constants/api'
@@ -49,19 +48,13 @@ export const createUserAndSendCode = (phone, navigation) => async (dispatch) => 
   dispatch(startCreateUserAndSendCode())
 
   try {
-    const { success: createUserSuccess } = await createUser({ uid: `+1${phone}`, source: 'phone', phone: `+1${phone}` })
-    if (createUserSuccess) {
-      const { success: requestOneTimePasswordSuccess } = await requestOneTimePassword(`+1${phone}`)
-      if (requestOneTimePasswordSuccess) {
-        dispatch(doneCreateUserAndSendCode(phone))
-        navigation.navigate('EnterCodeScreen')
-      } else {
-        dispatch(processError())
-        Alert.alert('Error', 'Error sending sms')
-      }
+    const { success } = await createUser({ phone: `+1${phone}` }, 'phone')
+    if (success) {
+      dispatch(doneCreateUserAndSendCode(phone))
+      navigation.navigate('EnterCodeScreen')
     } else {
       dispatch(processError())
-      Alert.alert('Error', 'This phone is already being used')
+      Alert.alert('Error', 'Error sending sms')
     }
   } catch (err) {
     dispatch(processError())
@@ -82,11 +75,11 @@ export const validateCode = (phone, code) => async dispatch => {
   dispatch(startValidateCode())
 
   try {
-    const { success, token } = await verifyOneTimePassword(`+1${phone}`, code)
+    const { token, success, user } = await validateCodeApi({ phone: `+1${phone}`, code })
 
     if (success) {
-      await AsyncStorage.multiSet([['token', token], ['phone', phone]])
-      dispatch(doneValidateCode(phone))
+      await AsyncStorage.setItem('token', token)
+      dispatch(tokenIsValid(user))
     } else {
       dispatch(processError())
       Alert.alert('Error', 'Incorrect Code')
@@ -127,10 +120,10 @@ export const doFacebookLogin = () => async dispatch => {
     return dispatch(signOut())
   }
 
-  const { token: apiToken, success } = await createUser({ token }, 'facebook')
+  const { token: apiToken, success, user } = await createUser({ token }, 'facebook')
   if (success) {
     await AsyncStorage.setItem('token', apiToken)
-    return dispatch(tokenIsValid())
+    return dispatch(tokenIsValid(user))
   }
 
   return dispatch(signOut())
@@ -147,10 +140,10 @@ export const doGoogleLogin = () => async dispatch => {
     return dispatch(signOut())
   }
 
-  const { token: apiToken, success } = await createUser({ token: accessToken }, 'google')
+  const { token: apiToken, success, user } = await createUser({ token: accessToken }, 'google')
   if (success) {
     await AsyncStorage.setItem('token', apiToken)
-    return dispatch(tokenIsValid())
+    return dispatch(tokenIsValid(user))
   }
 
   return dispatch(signOut())

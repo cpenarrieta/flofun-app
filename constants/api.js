@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import secretConfig from './secrets'
 
-const { FUNCTIONS_URL, API_URL } = secretConfig
+const { API_URL } = secretConfig
 
 export const fetchFlowers = async () => {
   try {
@@ -24,19 +24,9 @@ export const createUser = async (user, provider) => {
   }
 }
 
-export const requestOneTimePassword = async (phone) => {
+export const validateCode = async (req) => {
   try {
-    const { data } = await axios.post(`${FUNCTIONS_URL}/requestOneTimePassword`, { phone })
-    return data
-  } catch (error) {
-    console.log(error.response.data) // eslint-disable-line
-    return error.response
-  }
-}
-
-export const verifyOneTimePassword = async (phone, code) => {
-  try {
-    const { data } = await axios.post(`${FUNCTIONS_URL}/verifyOneTimePassword`, { phone, code })
+    const { data } = await axios.post(`${API_URL}/auth/validateCode`, req)
     return data
   } catch (error) {
     console.log(error.response.data) // eslint-disable-line

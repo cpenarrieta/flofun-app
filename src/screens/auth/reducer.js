@@ -74,12 +74,14 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         logged: true,
+        loading: false,
         user: action.user,
       }
     case SIGN_OUT:
       return {
         ...state,
         logged: false,
+        loading: false,
       }
     default:
       return state
