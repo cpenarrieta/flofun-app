@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#574E6D",
+      "flex": 0.1,
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 0.8,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "paddingLeft": 7.5,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 0.2,
+        "justifyContent": "space-around",
+      }
+    }
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      focusedOpacity={0.7}
+      onPress={[Function]}
+    >
+      <Icon
+        allowFontScaling={false}
+        color="#fff"
+        name="arrow-right"
+        size={40}
+      />
+    </TouchableOpacity>
+  </View>
+</View>
+`;
