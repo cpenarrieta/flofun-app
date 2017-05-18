@@ -1,5 +1,6 @@
 import { Alert, AsyncStorage } from 'react-native'
 import { Facebook, Google } from 'expo'
+import axios from 'axios'
 
 import secrets from '../../../constants/secrets'
 import {
@@ -78,6 +79,7 @@ export const validateCode = (phone, code) => async dispatch => {
     const { token, success, user } = await validateCodeApi({ phone: `+1${phone}`, code })
 
     if (success) {
+      axios.defaults.headers.common.Authorization = token
       await AsyncStorage.setItem('token', token)
       dispatch(tokenIsValid(user))
     } else {
@@ -122,6 +124,7 @@ export const doFacebookLogin = () => async dispatch => {
 
   const { token: apiToken, success, user } = await createUser({ token }, 'facebook')
   if (success) {
+    axios.defaults.headers.common.Authorization = apiToken
     await AsyncStorage.setItem('token', apiToken)
     return dispatch(tokenIsValid(user))
   }
@@ -142,6 +145,7 @@ export const doGoogleLogin = () => async dispatch => {
 
   const { token: apiToken, success, user } = await createUser({ token: accessToken }, 'google')
   if (success) {
+    axios.defaults.headers.common.Authorization = apiToken
     await AsyncStorage.setItem('token', apiToken)
     return dispatch(tokenIsValid(user))
   }
