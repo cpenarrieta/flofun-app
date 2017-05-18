@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { View, StatusBar, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native'
+import { View, StatusBar, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { FormInput, FormLabel } from 'react-native-elements'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { connect } from 'react-redux'
 import { MaterialIcons } from '@expo/vector-icons'
 
@@ -40,7 +41,7 @@ export default class ContactDetailsScreen extends Component {
     ...HeaderStack(navigation),
   })
 
-  renderMessage = (flower, isLast, key) => (
+  renderMessage = (flower, key) => (
     <View style={styles.messageView} key={flower._id}>
       <FormLabel labelStyle={styles.label}>{`Message for ${flower.title}`}</FormLabel>
       <FormInput
@@ -50,7 +51,7 @@ export default class ContactDetailsScreen extends Component {
         maxLength={250}
         multiline
         numberOfLines={5}
-        containerStyle={[styles.messageContainer, isLast ? { marginBottom: 200 } : {}]}
+        containerStyle={styles.messageContainer}
         inputStyle={styles.messageInput}
       />
     </View>
@@ -63,7 +64,11 @@ export default class ContactDetailsScreen extends Component {
       <TouchableWithoutFeedback style={styles.root} onPress={Keyboard.dismiss}>
         <View style={styles.root}>
           <StatusBar barStyle="light-content" />
-          <ScrollView style={styles.rootTop} vertical>
+          <KeyboardAwareScrollView
+            contentContainerStyle={styles.rootTop}
+            resetScrollToCoords={{ x: 0, y: 0 }}
+            scrollEnabled
+          >
             <FormLabel labelStyle={styles.label}>Sender</FormLabel>
             <FormInput
               value={contactDetails.senderName}
@@ -80,8 +85,8 @@ export default class ContactDetailsScreen extends Component {
               placeholder="Receiver Full Name"
               inputStyle={styles.input}
             />
-            {selectedFlowers.map((flower, key) => this.renderMessage(flower, key === selectedFlowers.length - 1, key))}
-          </ScrollView>
+            {selectedFlowers.map((flower, key) => this.renderMessage(flower, key))}
+          </KeyboardAwareScrollView>
           <Footer nextCallback={() => navigation.navigate('Payment')} />
         </View>
       </TouchableWithoutFeedback>
