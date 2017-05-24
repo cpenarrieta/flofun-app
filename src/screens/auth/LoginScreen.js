@@ -42,9 +42,16 @@ export default class LoginScreen extends Component {
   }
 
   animateTitle() {
-    this.position = new Animated.ValueXY()
-    Animated.timing(this.position, {
+    this.titlePosition = new Animated.ValueXY()
+    this.buttonPosition = new Animated.ValueXY({ x: 0, y: 80 })
+
+    Animated.timing(this.titlePosition, {
       toValue: { x: 0, y: 50 },
+      duration: 750,
+    }).start()
+
+    Animated.timing(this.buttonPosition, {
+      toValue: { x: 0, y: 0 },
       duration: 750,
     }).start()
   }
@@ -61,7 +68,7 @@ export default class LoginScreen extends Component {
 
     return (
       <View style={styles.root}>
-        <Animated.View style={[this.position.getLayout(), styles.root]}>
+        <Animated.View style={[this.titlePosition.getLayout(), styles.root]}>
           <Text style={styles.authTitle}>FloFun</Text>
         </Animated.View>
         <View style={styles.root}>
@@ -75,7 +82,7 @@ export default class LoginScreen extends Component {
               </Text>
             </View>
           </View>
-          <View style={styles.bottomButtonWrapper}>
+          <Animated.View style={[this.buttonPosition.getLayout(), styles.bottomButtonWrapper]}>
             <TouchableOpacity
               style={[styles.loginButton, styles.google]}
               onPress={() => this.props.doGoogleLogin()}
@@ -94,7 +101,7 @@ export default class LoginScreen extends Component {
             >
               <FontAwesome name="mobile-phone" size={35} color="#fff" />
             </TouchableOpacity>
-          </View>
+          </Animated.View>
         </View>
       </View>
     )
