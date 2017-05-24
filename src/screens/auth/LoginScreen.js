@@ -1,6 +1,6 @@
 import Expo from 'expo'
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Animated } from 'react-native'
 import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 
@@ -26,6 +26,7 @@ export default class LoginScreen extends Component {
 
   componentWillMount() {
     this.checkToken()
+    this.animateTitle()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -40,6 +41,14 @@ export default class LoginScreen extends Component {
     }
   }
 
+  animateTitle() {
+    this.position = new Animated.ValueXY()
+    Animated.timing(this.position, {
+      toValue: { x: 0, y: 50 },
+      duration: 750,
+    }).start()
+  }
+
   async checkToken() {
     await this.props.signInWithToken()
     this.setState({ loading: false })
@@ -52,9 +61,9 @@ export default class LoginScreen extends Component {
 
     return (
       <View style={styles.root}>
-        <View style={styles.root}>
+        <Animated.View style={[this.position.getLayout(), styles.root]}>
           <Text style={styles.authTitle}>FloFun</Text>
-        </View>
+        </Animated.View>
         <View style={styles.root}>
           <View style={styles.root}>
             <View style={styles.root}>
