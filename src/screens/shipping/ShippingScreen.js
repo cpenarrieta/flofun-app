@@ -36,7 +36,7 @@ export default class ShippingScreen extends Component {
         }
         this.setState({ currentPosition: position })
       },
-      (error) => console.log(JSON.stringify(error)),
+      (error) => console.log(JSON.stringify(error)), // eslint-disable-line
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     )
   }

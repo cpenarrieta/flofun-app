@@ -9,8 +9,8 @@ const Footer = ({ selectedFlowers, removeSelectedFlower, navigate }) => (
   (
     <View style={styles.bottomContainer}>
       <View style={styles.bottomLeft}>
-        {selectedFlowers.map((flower, id) =>
-          <View key={id} style={styles.circle}>
+        {selectedFlowers.map((flower) => (
+          <View key={flower._id} style={styles.circle}>
             <Image source={{ uri: flower.image }} style={styles.selectedImage} />
             <TouchableWithoutFeedback onPress={() => removeSelectedFlower(flower)}>
               <MaterialCommunityIcons
@@ -21,7 +21,7 @@ const Footer = ({ selectedFlowers, removeSelectedFlower, navigate }) => (
               />
             </TouchableWithoutFeedback>
           </View>
-        )}
+        ))}
       </View>
       <View style={styles.bottomRight}>
         <TouchableOpacity onPress={() => navigate('ContactDetails')}>
