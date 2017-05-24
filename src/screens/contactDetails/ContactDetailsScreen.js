@@ -47,7 +47,6 @@ export default class ContactDetailsScreen extends Component {
       <FormInput
         value={flower.message}
         onChangeText={val => this.props.handleChangeMessage(val, key)}
-        placeholder="Message"
         maxLength={250}
         multiline
         numberOfLines={5}

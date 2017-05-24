@@ -15,8 +15,8 @@ Object {
         onPress={[Function]}
         style={
             Object {
-                "marginLeft": 11.25,
-                "marginRight": 3.75,
+                "marginLeft": 22.5,
+                "marginRight": 7.5,
               }
         }
     >
@@ -33,7 +33,7 @@ Object {
         onPress={[Function]}
         style={
             Object {
-                "marginLeft": 11.25,
+                "marginLeft": 22.5,
               }
         }
     >

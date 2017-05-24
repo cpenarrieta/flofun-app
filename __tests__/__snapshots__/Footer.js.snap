@@ -17,7 +17,7 @@ exports[`Footer renders correctly 1`] = `
         "flex": 0.8,
         "flexDirection": "row",
         "justifyContent": "center",
-        "paddingLeft": 7.5,
+        "paddingLeft": 15,
       }
     }
   />
