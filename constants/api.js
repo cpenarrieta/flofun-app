@@ -3,7 +3,8 @@ import axios from 'axios'
 
 import secretConfig from './secrets'
 
-const { API_URL } = secretConfig
+const { API_URL, googleMapsApiKey } = secretConfig
+const GETCODE_API = 'https://maps.googleapis.com/maps/api/geocode/json?'
 
 export const fetchFlowers = async () => {
   try {
@@ -43,6 +44,36 @@ export const currentUser = async token => {
   try {
     const { data } = await axios.post(`${API_URL}/me/`)
     return data
+  } catch (error) {
+    console.log(error) // eslint-disable-line
+    return false
+  }
+}
+
+const geoAddress = {}
+
+const latLonExist = (key) => {
+  if (key in geoAddress) {
+    return geoAddress[key]
+  }
+  return false
+}
+
+export const getAddress = async (lat, lon) => {
+  try {
+    const key = `${lat},${lon}`
+    const recurrentAddress = latLonExist(key)
+    if (recurrentAddress) {
+      return recurrentAddress
+    }
+
+    const { data } = await axios.get(`${GETCODE_API}latlng=${lat},${lon}&key=${googleMapsApiKey}`)
+    const { results, status } = data
+    if (status === 'OK') {
+      geoAddress[key] = results[0].formatted_address
+      return results[0].formatted_address
+    }
+    return false
   } catch (error) {
     console.log(error) // eslint-disable-line
     return false
