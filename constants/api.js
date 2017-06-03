@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import secretConfig from './secrets'
 
-const { API_URL, googleMapsApiKey } = secretConfig
+const { API_URL, googleMapsApiKey, geocodingDisabled } = secretConfig
 const GETCODE_API = 'https://maps.googleapis.com/maps/api/geocode/json?'
 
 export const fetchFlowers = async () => {
@@ -61,6 +61,8 @@ const latLonExist = (key) => {
 
 export const getAddress = async (lat, lon) => {
   try {
+    if (geocodingDisabled) return '201-2875 Osoyoos Crescent, Vancouver, BC, V6T 2G3'
+
     const key = `${lat},${lon}`
     const recurrentAddress = latLonExist(key)
     if (recurrentAddress) {
