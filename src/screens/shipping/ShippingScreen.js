@@ -39,12 +39,6 @@ export default class ShippingScreen extends Component {
             latitude,
             longitude,
           },
-          region: {
-            latitude,
-            longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          },
         })
       },
       (error) => console.log(JSON.stringify(error)), // eslint-disable-line
@@ -52,18 +46,22 @@ export default class ShippingScreen extends Component {
     )
   }
 
-  renderRegion({ latitude, longitude }) {
+  renderRegion({ latitude, longitude, latitudeDelta, longitudeDelta }, currLatitude) {
+    if (currLatitude && Math.abs(currLatitude - latitude) > 1) return
+
     this.setState({
+      latitudeDelta,
+      longitudeDelta,
       markerPosition: {
         latitude,
         longitude,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitudeDelta,
+        longitudeDelta,
       },
     })
   }
 
-  async renderAddress({ latitude, longitude }) {
+  async renderAddress({ latitude, longitude, latitudeDelta, longitudeDelta }) {
     const address = await getAddress(latitude, longitude)
     if (address) {
       this.setState({
@@ -71,25 +69,24 @@ export default class ShippingScreen extends Component {
         markerPosition: {
           latitude,
           longitude,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          latitudeDelta,
+          longitudeDelta,
         },
       })
     } else {
       this.setState({
-        address,
         markerPosition: {
           latitude,
           longitude,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          latitudeDelta,
+          longitudeDelta,
         },
       })
     }
   }
 
   render() {
-    const { currentPosition, markerPosition, address } = this.state
+    const { currentPosition, markerPosition, address, latitudeDelta } = this.state
 
     if (!currentPosition) {
       return <LoadingScreen />
@@ -127,21 +124,23 @@ export default class ShippingScreen extends Component {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-          onRegionChange={(coords) => this.renderRegion(coords)}
+          onRegionChange={(coords) => this.renderRegion(coords, currentPosition.latitude)}
           onRegionChangeComplete={(coords) => this.renderAddress(coords)}
         >
           {currentPosition && (
             <MapView.Circle
+              key={`${currentPosition.longitude}${currentPosition.latitude}${latitudeDelta}_1`}
               center={currentPosition}
-              radius={300}
+              radius={3900 * latitudeDelta}
               strokeColor={'transparent'}
               fillColor={'rgba(112,185,213,0.30)'}
             />
           )}
           {currentPosition && (
             <MapView.Circle
+              key={`${currentPosition.longitude}${currentPosition.latitude}${latitudeDelta}_2`}
               center={currentPosition}
-              radius={100}
+              radius={1300 * latitudeDelta}
               strokeColor={'transparent'}
               fillColor={'#3594BC'}
             />
