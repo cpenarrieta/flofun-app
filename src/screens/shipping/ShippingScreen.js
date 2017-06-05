@@ -47,7 +47,7 @@ export default class ShippingScreen extends Component {
   }
 
   renderRegion({ latitude, longitude, latitudeDelta, longitudeDelta }, currLatitude) {
-    if (currLatitude && Math.abs(currLatitude - latitude) > 1) return
+    if (this.state.latitudeDelta && currLatitude && Math.abs(currLatitude - latitude) > 1) return
 
     this.setState({
       latitudeDelta,
