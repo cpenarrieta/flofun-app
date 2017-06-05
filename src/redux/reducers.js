@@ -3,12 +3,14 @@ import {
   FlowerShopReducer,
   AuthReducer,
   ContactDetailsReducer,
+  ShippingReducer,
 } from '../screens'
 import navigation from '../routes/navigationReducer'
 
 export default combineReducers({
-  flowerShop: FlowerShopReducer,
   navigation,
   auth: AuthReducer,
+  shipping: ShippingReducer,
+  flowerShop: FlowerShopReducer,
   contactDetails: ContactDetailsReducer,
 })
