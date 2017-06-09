@@ -8,7 +8,7 @@ export default class Footer extends Component {
   componentWillUpdate() {
     this.position = new Animated.ValueXY({ x: 0, y: 80 })
 
-    Animated.timing(this.position, {
+    Animated.spring(this.position, {
       toValue: { x: 0, y: 0 },
       duration: 500,
     }).start()
