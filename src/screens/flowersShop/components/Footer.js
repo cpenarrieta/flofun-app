@@ -1,40 +1,70 @@
-import React from 'react'
-import { View, TouchableOpacity, Image, TouchableWithoutFeedback } from 'react-native'
+import React, { Component } from 'react'
+import { View, TouchableOpacity, Image, TouchableWithoutFeedback, Animated } from 'react-native'
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons'
 
 import styles from './styles/Footer'
 
-const Footer = ({ selectedFlowers, removeSelectedFlower, navigate }) => (
-  selectedFlowers.length > 0 ?
-  (
-    <View style={styles.bottomContainer}>
-      <View style={styles.bottomLeft}>
-        {selectedFlowers.map((flower) => (
-          <View key={flower._id} style={styles.circle}>
-            <Image source={{ uri: flower.image }} style={styles.selectedImage} />
-            <TouchableWithoutFeedback onPress={() => removeSelectedFlower(flower)}>
-              <MaterialCommunityIcons
-                style={styles.closeIcon}
-                name="close-circle"
-                size={20}
-                color="#000"
-              />
-            </TouchableWithoutFeedback>
-          </View>
-        ))}
-      </View>
-      <View style={styles.bottomRight}>
-        <TouchableOpacity onPress={() => navigate('ContactDetails')}>
-          <FontAwesome
-            name="arrow-right"
-            size={40}
-            color="#fff"
-          />
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
-  : null
-)
+export default class Footer extends Component {
+  componentWillUpdate() {
+    this.position = new Animated.ValueXY({ x: 0, y: 80 })
 
-export default Footer
+    Animated.timing(this.position, {
+      toValue: { x: 0, y: 0 },
+      duration: 500,
+    }).start()
+  }
+
+  render() {
+    const { selectedFlowers, removeSelectedFlower, navigate } = this.props
+    return selectedFlowers.length > 0 ?
+    (
+      <View style={styles.bottomContainer}>
+        <View style={styles.bottomLeft}>
+          {selectedFlowers.map((flower, key) => {
+            const lastElement = key === selectedFlowers.length - 1
+
+            if (lastElement) {
+              return (
+                <Animated.View key={flower._id} style={[this.position.getLayout(), styles.circle]}>
+                  <Image source={{ uri: flower.image }} style={styles.selectedImage} />
+                  <TouchableWithoutFeedback onPress={() => removeSelectedFlower(flower)}>
+                    <MaterialCommunityIcons
+                      style={styles.closeIcon}
+                      name="close-circle"
+                      size={20}
+                      color="#000"
+                    />
+                  </TouchableWithoutFeedback>
+                </Animated.View>
+              )
+            }
+
+            return (
+              <View key={flower._id} style={styles.circle}>
+                <Image source={{ uri: flower.image }} style={styles.selectedImage} />
+                <TouchableWithoutFeedback onPress={() => removeSelectedFlower(flower)}>
+                  <MaterialCommunityIcons
+                    style={styles.closeIcon}
+                    name="close-circle"
+                    size={20}
+                    color="#000"
+                  />
+                </TouchableWithoutFeedback>
+              </View>
+            )
+          })}
+        </View>
+        <View style={styles.bottomRight}>
+          <TouchableOpacity onPress={() => navigate('ContactDetails')}>
+            <FontAwesome
+              name="arrow-right"
+              size={40}
+              color="#fff"
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+    : null
+  }
+}
