@@ -5,7 +5,7 @@ import { openImageGallery } from '@expo/react-native-image-gallery'
 
 import styles from './styles/FlowerItem'
 
-class FlowerItem extends Component {
+export default class FlowerItem extends Component {
   _openInImageGallery = () => {
     const { flower } = this.props
     const item = {
@@ -60,5 +60,3 @@ class FlowerItem extends Component {
     )
   }
 }
-
-export default FlowerItem

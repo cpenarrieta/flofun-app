@@ -16,8 +16,7 @@ export default class Footer extends Component {
 
   render() {
     const { selectedFlowers, removeSelectedFlower, navigate } = this.props
-    return selectedFlowers.length > 0 ?
-    (
+    return (
       <View style={styles.bottomContainer}>
         <View style={styles.bottomLeft}>
           {selectedFlowers.map((flower, key) => {
@@ -65,6 +64,5 @@ export default class Footer extends Component {
         </View>
       </View>
     )
-    : null
   }
 }

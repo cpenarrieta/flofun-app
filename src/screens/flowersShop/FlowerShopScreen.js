@@ -25,7 +25,7 @@ import {
     removeSelectedFlower,
   }
 )
-class FlowerShopScreen extends Component {
+export default class FlowerShopScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     drawerLabel: 'Select Flower',
     title: 'Select Flower',
@@ -83,5 +83,3 @@ class FlowerShopScreen extends Component {
     )
   }
 }
-
-export default FlowerShopScreen
