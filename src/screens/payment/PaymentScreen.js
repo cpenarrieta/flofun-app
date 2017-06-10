@@ -3,18 +3,15 @@ import { Text, View, StatusBar, TouchableOpacity, Image } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import { connect } from 'react-redux'
-import styles from './styles/paymentScreen'
 
+import styles from './styles/paymentScreen'
 import Footer from '../../commons/Footer'
 import HeaderStack from '../../commons/HeaderStack'
 
 @connect(
   state => ({
     selectedFlowers: state.flowerShop.selectedFlowers,
-  }),
-  {
-
-  }
+  })
 )
 export default class PaymentScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
