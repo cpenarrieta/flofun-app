@@ -8,4 +8,4 @@ React native app using `expo`, `react-navigation`, `jest`, `redux`, `react-nativ
 ![googlemap](https://d2ppvlu71ri8gs.cloudfront.net/items/2V1S2C0p040M3F270k2G/directions.gif)
 
 ### Flower Selection
-![flowers](https://d2ppvlu71ri8gs.cloudfront.net/items/2e2P2s2S1V071J0k1l11/flowers.gif)
+<img src="/assets/flowers2.gif?raw=true" width="300px">
