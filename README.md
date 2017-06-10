@@ -4,7 +4,7 @@ React native app using `expo`, `react-navigation`, `jest`, `redux`, `react-nativ
 ### SMS code login
 ![sms](https://d2ppvlu71ri8gs.cloudfront.net/items/1o462P0d1b3k16243v1M/sms.gif)
 
-### Google Maps Geolocation
+### Address Lookup using Google Maps reverse geocoding
 ![googlemap](https://d2ppvlu71ri8gs.cloudfront.net/items/2V1S2C0p040M3F270k2G/directions.gif)
 
 ### Flower Selection
