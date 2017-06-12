@@ -23,7 +23,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         flowers: {
-          data: action.payload,
+          data: action.payload.map((f) => Object.assign(f, { quantity: 1 })),
           isFetched: true,
           error: {
             on: false,

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
-import ImageGallery from '@expo/react-native-image-gallery'
 import { FontAwesome } from '@expo/vector-icons'
 
 import { FlowerList, Footer } from './components'
@@ -78,7 +77,6 @@ export default class FlowerShopScreen extends Component {
           removeSelectedFlower={this.props.removeSelectedFlower}
           navigate={this.props.navigation.navigate}
         />
-        <ImageGallery />
       </View>
     )
   }
