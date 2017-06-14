@@ -53,7 +53,7 @@ const styles = EStyleSheet.create({
   },
   text: {
     fontSize: 18,
-    fontFamily: 'montserrat',
+    fontFamily: 'montserratLight',
   },
 })
 

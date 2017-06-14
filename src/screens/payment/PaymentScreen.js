@@ -71,8 +71,7 @@ export default class PaymentScreen extends Component {
                   <Image source={{ uri: flower.image }} style={styles.selectedImage} />
                 </View>
                 <View style={styles.itemDesc}>
-                  <Text style={styles.text}>{flower.title} </Text>
-                  <Text style={styles.text}>{`X${flower.quantity}`} </Text>
+                  <Text style={styles.text}>{`${flower.title} (X${flower.quantity})`} </Text>
                   <Text style={styles.text}>{`$ ${flower.price * flower.quantity}`}</Text>
                 </View>
               </View>
