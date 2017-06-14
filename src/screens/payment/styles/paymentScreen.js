@@ -22,6 +22,8 @@ const styles = EStyleSheet.create({
   checkoutItems: {
   },
   priceDetails: {
+    marginTop: 5,
+    alignItems: 'flex-end',
   },
   checkoutItem: {
     flexDirection: 'row',

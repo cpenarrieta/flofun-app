@@ -3,6 +3,7 @@ import { Text, View, StatusBar, TouchableOpacity, Image } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import { connect } from 'react-redux'
+import numeral from 'numeral'
 
 import styles from './styles/paymentScreen'
 import Footer from '../../commons/Footer'
@@ -60,6 +61,11 @@ export default class PaymentScreen extends Component {
       </View>
     )
 
+    const sumPrice = selectedFlowers.reduce((acc, val) => acc + (val.price * val.quantity), 0)
+    const shipping = sumPrice * 0.02
+    const taxes = (sumPrice + shipping) * 0.09
+    const total = sumPrice + shipping + taxes
+
     return (
       <View style={styles.root}>
         <StatusBar barStyle="light-content" />
@@ -72,23 +78,27 @@ export default class PaymentScreen extends Component {
                 </View>
                 <View style={styles.itemDesc}>
                   <Text style={styles.text}>{`${flower.title} (X${flower.quantity})`} </Text>
-                  <Text style={styles.text}>{`$ ${flower.price * flower.quantity}`}</Text>
+                  <Text style={styles.text}>{`$ ${numeral(flower.price * flower.quantity).format('0,0.00')}`}</Text>
                 </View>
               </View>
             ))}
           </View>
           <View style={styles.priceDetails}>
             <View style={styles.priceItem}>
-              <Text style={styles.text}>Shipping </Text>
-              <Text style={styles.text}>$ 20</Text>
+              <Text style={styles.text}>Sub Total: </Text>
+              <Text style={styles.text}>{`$ ${numeral(sumPrice).format('0,0.00')}`}</Text>
             </View>
             <View style={styles.priceItem}>
-              <Text style={styles.text}>Taxes </Text>
-              <Text style={styles.text}>$ 100</Text>
+              <Text style={styles.text}>Shipping: </Text>
+              <Text style={styles.text}>{`$ ${numeral(shipping).format('0,0.00')}`}</Text>
             </View>
             <View style={styles.priceItem}>
-              <Text style={styles.text}>Order Total </Text>
-              <Text style={styles.text}>$ 1200</Text>
+              <Text style={styles.text}>Taxes: </Text>
+              <Text style={styles.text}>{`$ ${numeral(taxes).format('0,0.00')}`}</Text>
+            </View>
+            <View style={styles.priceItem}>
+              <Text style={styles.text}>Order Total: </Text>
+              <Text style={styles.text}>{`$ ${numeral(total).format('0,0.00')}`}</Text>
             </View>
           </View>
         </View>
