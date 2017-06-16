@@ -8,7 +8,9 @@ import {
   Animated,
 } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
+import Modal from 'react-native-root-modal'
 
+import Swipeable from '../../../commons/Swipeable'
 import styles from './styles/FlowerItem'
 
 export default class FlowerItem extends Component {
@@ -17,9 +19,11 @@ export default class FlowerItem extends Component {
 
     this._animatedWidth = new Animated.Value(0)
     this._animatedQuantity = new Animated.Value(0)
+    this.modalOpacity = new Animated.Value(0)
     this.state = {
       isOpen: false,
       quantity: 1,
+      modalVisible: false,
     }
   }
 
@@ -149,11 +153,36 @@ export default class FlowerItem extends Component {
 
   render() {
     const { flower, lastElement } = this.props
+    const { modalVisible } = this.state
+    const modalStyle = {
+      opacity: this.modalOpacity
+    }
 
     return (
       <View style={[styles.root, lastElement && styles.lastFlower]}>
+        <Modal
+          style={styles.modalContainer}
+          visible={modalVisible}
+        >
+          <Animated.View
+            style={[styles.backgroundModal, modalStyle]}
+          />
+          <Swipeable>
+            <Animated.View style={[styles.modal, modalStyle]}>
+              <Image source={{ uri: flower.image }} style={{width: 300, height: 230, resizeMode: 'contain'}} />
+              <View style={{padding: 5}}>
+                <Text>{flower.description}</Text>
+              </View>
+            </Animated.View>
+          </Swipeable>
+        </Modal>
         <View style={styles.imageSection}>
-          <TouchableWithoutFeedback onPress={this._openInImageGallery}>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              Animated.spring(this.modalOpacity, {toValue: 1}).start()
+              this.setState({modalVisible: true})
+            }}
+          >
             <Image source={{ uri: flower.image }} style={styles.image} />
           </TouchableWithoutFeedback>
         </View>

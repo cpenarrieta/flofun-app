@@ -32,6 +32,7 @@
     "react-native-elements": "^0.13.0",
     "react-native-extended-stylesheet": "^0.4.0",
     "react-native-keyboard-aware-scroll-view": "^0.2.9",
+    "react-native-root-modal": "^1.1.1",
     "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",

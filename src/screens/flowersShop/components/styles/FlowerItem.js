@@ -1,4 +1,5 @@
 import EStyleSheet from 'react-native-extended-stylesheet'
+import { StyleSheet } from 'react-native'
 
 const styles = EStyleSheet.create({
   root: {
@@ -89,6 +90,23 @@ const styles = EStyleSheet.create({
   priceSelected: {
     backgroundColor: '$greenColor',
   },
+  modal: {
+    width: 300,
+    height: 400,
+    backgroundColor: '$whiteColor',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContainer: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backgroundModal: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.5)'
+  }
 })
 
 export default styles
