@@ -13,6 +13,8 @@ import Modal from 'react-native-root-modal'
 import Swipeable from '../../../commons/Swipeable'
 import styles from './styles/FlowerItem'
 
+const calculateOpacity = x => Math.max(0, 100 - Math.abs(x)) / 100;
+
 export default class FlowerItem extends Component {
   constructor(props) {
     super(props)
@@ -162,7 +164,24 @@ export default class FlowerItem extends Component {
       <View style={[styles.root, lastElement && styles.lastFlower]}>
         <Modal style={styles.modalContainer} visible={modalVisible}>
           <Animated.View style={[styles.backgroundModal, modalStyle]} />
-          <Swipeable>
+          <Swipeable
+            onMove={({dx, dy}) => {
+              const newOpacityX = calculateOpacity(dx)
+              const newOpacityY = calculateOpacity(dy)
+              this.modalOpacity.setValue(Math.min(newOpacityX, newOpacityY))
+            }}
+            onEnd={({dx, dy}) => {
+              const newOpacityX = calculateOpacity(dx)
+              const newOpacityY = calculateOpacity(dy)
+              if (Math.min(newOpacityX, newOpacityY) < 0.1) {
+                this.setState({modalVisible: false})
+                this.modalOpacity.setValue(0)
+              } else {
+                Animated.spring(this.modalOpacity, {toValue: 1}).start()
+                this.modalOpacity.setValue(1)
+              }
+            }}
+          >
             <Animated.View style={[styles.modal, modalStyle]}>
               <Image
                 source={{ uri: flower.image }}

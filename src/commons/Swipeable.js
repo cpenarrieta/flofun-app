@@ -30,6 +30,9 @@ export default class Swipeable extends Component {
 
   // Every time the touch/mouse moves
   handlePanResponderMove = (e, gestureState) => {
+    const { onMove } = this.props
+    onMove(gestureState)
+
     // Keep track of how far we've moved in total (dx and dy)
     this.setState({
       offsetTop: gestureState.dy,
@@ -38,7 +41,10 @@ export default class Swipeable extends Component {
   }
 
   // When the touch/mouse is lifted
-  handlePanResponderEnd = () => {
+  handlePanResponderEnd = (e, gestureState) => {
+    const { onEnd } = this.props
+    onEnd(gestureState)
+
     // The drag is finished. Set the initialTop and initialLeft so that
     // the new position sticks. Reset offsetTop and offsetLeft for the next drag.
     this.setState({
