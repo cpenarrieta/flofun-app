@@ -7,13 +7,7 @@ import { signOutUser } from '../../../constants/api'
 export default class SignOut extends Component {
   static navigationOptions = () => ({
     drawerLabel: 'Sign Out',
-    drawerIcon: ({ tintColor }) => (
-      <FontAwesome
-        name="sign-out"
-        size={20}
-        color={tintColor}
-      />
-    ),
+    drawerIcon: ({ tintColor }) => <FontAwesome name="sign-out" size={20} color={tintColor} />,
   })
 
   componentWillMount() {

@@ -1,7 +1,4 @@
-import {
-  CHANGE_SENDER,
-  CHANGE_RECIPIENT,
-} from './actions'
+import { CHANGE_SENDER, CHANGE_RECIPIENT } from './actions'
 
 const INITIAL_STATE = {
   senderName: '',

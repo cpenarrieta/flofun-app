@@ -1,5 +1,3 @@
 import ProfileScreen from './ProfileScreen'
 
-export {
-  ProfileScreen,
-}
+export { ProfileScreen }

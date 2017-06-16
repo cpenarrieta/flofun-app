@@ -1,7 +1,11 @@
 {
-  "extends": "equimper",
+  "extends": [
+    "equimper",
+    "prettier"
+  ],
   "rules": {
-    "semi": "off"
+    "semi": "off",
+    "react/jsx-wrap-multilines": "off"
   },
   "env": {
     "jest": true

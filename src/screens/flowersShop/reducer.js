@@ -1,9 +1,4 @@
-import {
-  FETCH_FLOWERS,
-  SELECT_FLOWER,
-  REMOVE_FLOWER,
-  CHANGE_MESSAGE,
-} from './actions'
+import { FETCH_FLOWERS, SELECT_FLOWER, REMOVE_FLOWER, CHANGE_MESSAGE } from './actions'
 
 const INITIAL_STATE = {
   selectedFlowers: [],
@@ -23,7 +18,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         flowers: {
-          data: action.payload.map((f) => Object.assign(f, { quantity: 1 })),
+          data: action.payload.map(f => Object.assign(f, { quantity: 1 })),
           isFetched: true,
           error: {
             on: false,
@@ -59,7 +54,7 @@ export default (state = INITIAL_STATE, action) => {
       }
     }
     case REMOVE_FLOWER: {
-      const newSelectedFlowers = state.selectedFlowers.filter((f) => f._id !== action.payload._id)
+      const newSelectedFlowers = state.selectedFlowers.filter(f => f._id !== action.payload._id)
 
       return {
         ...state,

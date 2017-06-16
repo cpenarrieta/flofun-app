@@ -3,10 +3,4 @@ import SignOut from './SignOut'
 import { PhoneSignUpScreen, EnterCodeScreen } from './phone'
 import AuthReducer from './reducer'
 
-export {
-  LoginScreen,
-  SignOut,
-  PhoneSignUpScreen,
-  EnterCodeScreen,
-  AuthReducer,
-}
+export { LoginScreen, SignOut, PhoneSignUpScreen, EnterCodeScreen, AuthReducer }

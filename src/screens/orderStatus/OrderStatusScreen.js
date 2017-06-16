@@ -8,13 +8,8 @@ export default class OrderStatusScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     drawerLabel: 'Order Status',
     title: 'Order Status',
-    drawerIcon: ({ tintColor }) => (
-      <MaterialCommunityIcons
-        name="truck-delivery"
-        size={20}
-        color={tintColor}
-      />
-    ),
+    drawerIcon: ({ tintColor }) =>
+      <MaterialCommunityIcons name="truck-delivery" size={20} color={tintColor} />,
     ...HeaderStack(navigation, { hideBack: true }),
   })
 

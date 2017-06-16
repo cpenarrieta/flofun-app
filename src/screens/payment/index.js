@@ -1,5 +1,3 @@
 import PaymentScreen from './PaymentScreen'
 
-export {
-  PaymentScreen,
-}
+export { PaymentScreen }

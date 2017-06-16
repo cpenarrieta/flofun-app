@@ -12,9 +12,7 @@ beforeAll(() => {
 
 describe('ProfileScreen', () => {
   test('renders correctly', () => {
-    const profile = shallow(
-      <ProfileScreen />
-    )
+    const profile = shallow(<ProfileScreen />)
 
     expect(toJson(profile)).toMatchSnapshot()
   })

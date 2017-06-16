@@ -7,11 +7,7 @@ import { FlowerList, Footer } from './components'
 import LoadingScreen from '../../commons/LoadingScreen'
 import styles from './styles/FlowerShopScreen'
 import HeaderStack from '../../commons/HeaderStack'
-import {
-  fetchAvailableFlowers,
-  selectFlower,
-  removeSelectedFlower,
-} from './actions'
+import { fetchAvailableFlowers, selectFlower, removeSelectedFlower } from './actions'
 
 @connect(
   state => ({
@@ -22,19 +18,13 @@ import {
     fetchAvailableFlowers,
     selectFlower,
     removeSelectedFlower,
-  }
+  },
 )
 export default class FlowerShopScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     drawerLabel: 'Select Flower',
     title: 'Select Flower',
-    drawerIcon: ({ tintColor }) => (
-      <FontAwesome
-        name="shopping-cart"
-        size={20}
-        color={tintColor}
-      />
-    ),
+    drawerIcon: ({ tintColor }) => <FontAwesome name="shopping-cart" size={20} color={tintColor} />,
     ...HeaderStack(navigation),
   })
 
@@ -43,14 +33,7 @@ export default class FlowerShopScreen extends Component {
   }
 
   render() {
-    const {
-      flowers: {
-        data,
-        isFetched,
-        error,
-      },
-      selectedFlowers,
-    } = this.props
+    const { flowers: { data, isFetched, error }, selectedFlowers } = this.props
 
     if (!isFetched) {
       return <LoadingScreen />

@@ -55,11 +55,7 @@ export default class Footer extends Component {
         </View>
         <View style={styles.bottomRight}>
           <TouchableOpacity onPress={() => navigate('ContactDetails')}>
-            <FontAwesome
-              name="arrow-right"
-              size={40}
-              color="#fff"
-            />
+            <FontAwesome name="arrow-right" size={40} color="#fff" />
           </TouchableOpacity>
         </View>
       </View>

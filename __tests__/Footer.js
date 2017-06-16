@@ -12,9 +12,7 @@ beforeAll(() => {
 
 describe('Footer', () => {
   test('renders correctly', () => {
-    const footer = shallow(
-      <Footer />
-    )
+    const footer = shallow(<Footer />)
 
     expect(toJson(footer)).toMatchSnapshot()
   })

@@ -1,5 +1,3 @@
 import OrderStatusScreen from './OrderStatusScreen'
 
-export {
-  OrderStatusScreen,
-}
+export { OrderStatusScreen }

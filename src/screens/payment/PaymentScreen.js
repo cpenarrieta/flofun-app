@@ -9,31 +9,21 @@ import styles from './styles/paymentScreen'
 import Footer from '../../commons/Footer'
 import HeaderStack from '../../commons/HeaderStack'
 
-@connect(
-  state => ({
-    selectedFlowers: state.flowerShop.selectedFlowers,
-  })
-)
+@connect(state => ({
+  selectedFlowers: state.flowerShop.selectedFlowers,
+}))
 export default class PaymentScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     drawerLabel: 'Checkout',
     title: 'Checkout',
-    drawerIcon: ({ tintColor }) => (
-      <MaterialIcons
-        name="payment"
-        size={20}
-        color={tintColor}
-      />
-    ),
+    drawerIcon: ({ tintColor }) => <MaterialIcons name="payment" size={20} color={tintColor} />,
     ...HeaderStack(navigation),
   })
 
   render() {
     const resetAction = NavigationActions.reset({
       index: 0,
-      actions: [
-        NavigationActions.navigate({ routeName: 'OrderStatus' }),
-      ],
+      actions: [NavigationActions.navigate({ routeName: 'OrderStatus' })],
     })
 
     const { selectedFlowers } = this.props
@@ -42,26 +32,18 @@ export default class PaymentScreen extends Component {
       <View style={styles.paymentButtons}>
         <View style={styles.paymentButton}>
           <TouchableOpacity onPress={() => console.log('credit card')}>
-            <MaterialIcons
-              name="payment"
-              size={30}
-              color="#fff"
-            />
+            <MaterialIcons name="payment" size={30} color="#fff" />
           </TouchableOpacity>
         </View>
         <View style={styles.paymentButton}>
           <TouchableOpacity onPress={() => console.log('apple pay')}>
-            <FontAwesome
-              name="apple"
-              size={30}
-              color="#fff"
-            />
+            <FontAwesome name="apple" size={30} color="#fff" />
           </TouchableOpacity>
         </View>
       </View>
     )
 
-    const sumPrice = selectedFlowers.reduce((acc, val) => acc + (val.price * val.quantity), 0)
+    const sumPrice = selectedFlowers.reduce((acc, val) => acc + val.price * val.quantity, 0)
     const shipping = sumPrice * 0.02
     const taxes = (sumPrice + shipping) * 0.09
     const total = sumPrice + shipping + taxes
@@ -71,17 +53,19 @@ export default class PaymentScreen extends Component {
         <StatusBar barStyle="light-content" />
         <View style={styles.contentContainer}>
           <View style={styles.checkoutItems}>
-            {selectedFlowers.map((flower) => (
+            {selectedFlowers.map(flower =>
               <View key={flower._id} style={styles.checkoutItem}>
                 <View style={styles.circle}>
                   <Image source={{ uri: flower.image }} style={styles.selectedImage} />
                 </View>
                 <View style={styles.itemDesc}>
                   <Text style={styles.text}>{`${flower.title} (X${flower.quantity})`} </Text>
-                  <Text style={styles.text}>{`$ ${numeral(flower.price * flower.quantity).format('0,0.00')}`}</Text>
+                  <Text style={styles.text}>{`$ ${numeral(flower.price * flower.quantity).format(
+                    '0,0.00',
+                  )}`}</Text>
                 </View>
-              </View>
-            ))}
+              </View>,
+            )}
           </View>
           <View style={styles.priceDetails}>
             <View style={styles.priceItem}>

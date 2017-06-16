@@ -19,18 +19,14 @@ import {
   {
     handleChangeCode: handleChangeCodeAction,
     validateCode: validateCodeAction,
-  }
+  },
 )
 export default class EnterCodeScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerStyle: styles.headerStyle,
     headerLeft: (
       <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
-        <Ionicons
-          name="ios-arrow-back"
-          size={30}
-          color={Colors.purpleDarkColor}
-        />
+        <Ionicons name="ios-arrow-back" size={30} color={Colors.purpleDarkColor} />
       </TouchableOpacity>
     ),
   })

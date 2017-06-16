@@ -22,12 +22,12 @@ export const SIGN_OUT = 'SIGN_OUT'
 export const FACEBOOK_LOGIN_FAIL = 'FACEBOOK_LOGIN_FAIL'
 export const FACEBOOK_LOGIN_SUCCESS = 'FACEBOOK_LOGIN_SUCCESS'
 
-export const handleChangePhone = (phone) => ({
+export const handleChangePhone = phone => ({
   type: CHANGE_PHONE,
   payload: phone,
 })
 
-export const handleChangeCode = (code) => ({
+export const handleChangeCode = code => ({
   type: CHANGE_CODE,
   payload: code,
 })
@@ -36,7 +36,7 @@ export const startCreateUserAndSendCode = () => ({
   type: START_CREATE_USER,
 })
 
-export const doneCreateUserAndSendCode = (phone) => ({
+export const doneCreateUserAndSendCode = phone => ({
   type: DONE_CREATE_USER,
   payload: phone,
 })
@@ -45,7 +45,7 @@ export const processError = () => ({
   type: PROCESS_ERROR,
 })
 
-export const createUserAndSendCode = (phone, navigation) => async (dispatch) => {
+export const createUserAndSendCode = (phone, navigation) => async dispatch => {
   dispatch(startCreateUserAndSendCode())
 
   try {
@@ -67,7 +67,7 @@ export const startValidateCode = () => ({
   type: START_VALIDATE_CODE,
 })
 
-export const doneValidateCode = (phone) => ({
+export const doneValidateCode = phone => ({
   type: DONE_VALIDATE_CODE,
   payload: phone,
 })
@@ -104,7 +104,7 @@ export const signInWithToken = () => async dispatch => {
   dispatch(tokenIsValid(user))
 }
 
-export const tokenIsValid = (user) => ({
+export const tokenIsValid = user => ({
   type: TOKEN_VALID,
   user,
 })

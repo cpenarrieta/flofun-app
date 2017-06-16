@@ -9,13 +9,7 @@ export default class ProfileScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     drawerLabel: 'Profile',
     title: 'Profile',
-    drawerIcon: ({ tintColor }) => (
-      <FontAwesome
-        name="user"
-        size={20}
-        color={tintColor}
-      />
-    ),
+    drawerIcon: ({ tintColor }) => <FontAwesome name="user" size={20} color={tintColor} />,
     ...HeaderStack(navigation, { hideBack: true }),
   })
 

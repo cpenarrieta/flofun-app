@@ -28,19 +28,13 @@ import {
     changeCurrentPosition: changeCurrentPositionAction,
     changeMarkerPosition: changeMarkerPositionAction,
     changeAddressAndMarkerPosition: changeAddressAndMarkerPositionAction,
-  }
+  },
 )
 export default class ShippingScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'flofun',
     drawerLabel: 'Home',
-    drawerIcon: ({ tintColor }) => (
-      <FontAwesome
-        name="map-marker"
-        size={20}
-        color={tintColor}
-      />
-    ),
+    drawerIcon: ({ tintColor }) => <FontAwesome name="map-marker" size={20} color={tintColor} />,
     ...HeaderStack(navigation, { hideBack: true }),
   })
 
@@ -50,8 +44,8 @@ export default class ShippingScreen extends Component {
         const { latitude, longitude } = coords
         this.props.changeCurrentPosition({ latitude, longitude })
       },
-      (error) => console.log(JSON.stringify(error)), // eslint-disable-line
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      error => console.log(JSON.stringify(error)), // eslint-disable-line
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
     )
   }
 
@@ -79,25 +73,13 @@ export default class ShippingScreen extends Component {
       return <LoadingScreen />
     }
 
-    const leftContainer = (
-      <Text style={styles.addressText}>{shippingAddress.address}</Text>
-    )
+    const leftContainer = <Text style={styles.addressText}>{shippingAddress.address}</Text>
 
     let marker = null
     if (markerPosition) {
-      marker = (
-        <MapView.Marker
-          coordinate={markerPosition}
-          pinColor={Colors.purpleDarkColor}
-        />
-      )
+      marker = <MapView.Marker coordinate={markerPosition} pinColor={Colors.purpleDarkColor} />
     } else if (currentPosition) {
-      marker = (
-        <MapView.Marker
-          coordinate={currentPosition}
-          pinColor={Colors.purpleDarkColor}
-        />
-      )
+      marker = <MapView.Marker coordinate={currentPosition} pinColor={Colors.purpleDarkColor} />
     }
 
     return (
@@ -111,27 +93,26 @@ export default class ShippingScreen extends Component {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-          onRegionChange={(coords) => this.renderRegion(coords, currentPosition.latitude, currentPosition.longitude)}
-          onRegionChangeComplete={(coords) => this.renderAddress(coords)}
+          onRegionChange={coords =>
+            this.renderRegion(coords, currentPosition.latitude, currentPosition.longitude)}
+          onRegionChangeComplete={coords => this.renderAddress(coords)}
         >
-          {currentPosition && (
+          {currentPosition &&
             <MapView.Circle
               key={`${currentPosition.longitude}${currentPosition.latitude}${delta}_1`}
               center={currentPosition}
               radius={3900 * delta}
               strokeColor={'transparent'}
               fillColor={'rgba(112,185,213,0.30)'}
-            />
-          )}
-          {currentPosition && (
+            />}
+          {currentPosition &&
             <MapView.Circle
               key={`${currentPosition.longitude}${currentPosition.latitude}${delta}_2`}
               center={currentPosition}
               radius={1300 * delta}
               strokeColor={'transparent'}
               fillColor={'#3594BC'}
-            />
-          )}
+            />}
           {marker}
         </MapView>
         <Footer

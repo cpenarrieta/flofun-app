@@ -8,15 +8,18 @@ import {
   OrderStatusScreen,
 } from '../screens'
 
-export default StackNavigator({
-  Shipping: { screen: ShippingScreen },
-  FlowerShop: { screen: FlowerShopScreen },
-  ContactDetails: { screen: ContactDetailsScreen },
-  Payment: { screen: PaymentScreen },
-  OrderStatus: { screen: OrderStatusScreen },
-}, {
-  mode: 'modal',
-  navigationOptions: {
-    gesturesEnabled: false,
+export default StackNavigator(
+  {
+    Shipping: { screen: ShippingScreen },
+    FlowerShop: { screen: FlowerShopScreen },
+    ContactDetails: { screen: ContactDetailsScreen },
+    Payment: { screen: PaymentScreen },
+    OrderStatus: { screen: OrderStatusScreen },
   },
-})
+  {
+    mode: 'modal',
+    navigationOptions: {
+      gesturesEnabled: false,
+    },
+  },
+)

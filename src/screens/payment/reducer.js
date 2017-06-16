@@ -1,9 +1,4 @@
-import {
-  CHANGE_CARD_NAME,
-  CHANGE_CARD_NUMBER,
-  CHANGE_CCV,
-  CHANGE_EXPIRATION_DATE,
-} from './actions'
+import { CHANGE_CARD_NAME, CHANGE_CARD_NUMBER, CHANGE_CCV, CHANGE_EXPIRATION_DATE } from './actions'
 
 const INITIAL_STATE = {
   cardName: '',

@@ -6,12 +6,19 @@
   "private": true,
   "main": "main.js",
   "scripts": {
-    "postinstall": "rndebugger-open",
     "clean": "rm -rf node_modules && rm yarn.lock",
     "test": "jest",
     "dev": "exp start --ios",
     "lint": "eslint src main.js",
-    "lint:fix": "eslint --fix src main.js"
+    "lint:fix": "eslint --fix src main.js",
+    "prettier": "prettier --no-semi --single-quote --print-width 100 --trailing-comma all --write '{src,__{tests,mocks}__}/**/*.js'",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --no-semi --single-quote --print-width 100 --trailing-comma all --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@expo/ex-navigation": "~3.0.0",
@@ -22,7 +29,7 @@
     "numeral": "^2.0.6",
     "react": "16.0.0-alpha.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-17.0.0.tar.gz",
-    "react-native-elements": "^0.12.2",
+    "react-native-elements": "^0.13.0",
     "react-native-extended-stylesheet": "^0.4.0",
     "react-native-keyboard-aware-scroll-view": "^0.2.9",
     "react-navigation": "^1.0.0-beta.11",
@@ -37,10 +44,12 @@
     "enzyme-to-json": "~1.5.1",
     "eslint": "^4.0.0",
     "eslint-config-equimper": "~2.1.2",
+    "eslint-config-prettier": "^2.1.1",
     "jest": "~20.0.4",
     "jest-expo": "1.0.2",
-    "react-addons-test-utils": "~15.5.1",
-    "react-dom": "~15.6.0",
+    "prettier": "^1.4.4",
+    "react-addons-test-utils": "~15.6.0",
+    "react-dom": "~15.6.1",
     "react-native-debugger-open": "~0.3.11",
     "redux-logger": "~3.0.6"
   },

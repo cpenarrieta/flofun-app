@@ -1,8 +1,4 @@
-import {
-  CHANGE_ADDRESS,
-  CHANGE_CURRENT_POSITION,
-  CHANGE_MARKER_POSITION,
-} from './actions'
+import { CHANGE_ADDRESS, CHANGE_CURRENT_POSITION, CHANGE_MARKER_POSITION } from './actions'
 
 const INITIAL_STATE = {
   shippingAddress: {

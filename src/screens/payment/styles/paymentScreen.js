@@ -19,8 +19,7 @@ const styles = EStyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-  checkoutItems: {
-  },
+  checkoutItems: {},
   priceDetails: {
     marginTop: 5,
     alignItems: 'flex-end',

@@ -11,19 +11,14 @@ export default class Footer extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.bottomLeft}>
-          {leftContainer || null }
+          {leftContainer || null}
         </View>
-        { showArrow && (
+        {showArrow &&
           <View style={styles.bottomRight}>
             <TouchableOpacity onPress={() => nextCallback()}>
-              <FontAwesome
-                name="arrow-right"
-                size={40}
-                color="#fff"
-              />
+              <FontAwesome name="arrow-right" size={40} color="#fff" />
             </TouchableOpacity>
-          </View>
-        )}
+          </View>}
       </View>
     )
   }

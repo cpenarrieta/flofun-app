@@ -19,7 +19,7 @@ import {
     signInWithToken: signInWithTokenAction,
     doFacebookLogin: doFacebookLoginAction,
     doGoogleLogin: doGoogleLoginAction,
-  }
+  },
 )
 export default class LoginScreen extends Component {
   state = { loading: true }

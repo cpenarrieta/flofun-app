@@ -12,9 +12,7 @@ beforeAll(() => {
 
 describe('LoadingScreen', () => {
   test('renders correctly', () => {
-    const loading = shallow(
-      <LoadingScreen />
-    )
+    const loading = shallow(<LoadingScreen />)
 
     expect(toJson(loading)).toMatchSnapshot()
   })

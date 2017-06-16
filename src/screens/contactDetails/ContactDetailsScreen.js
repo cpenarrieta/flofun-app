@@ -12,9 +12,7 @@ import {
   handleChangeSender as handleChangeSenderAction,
   handleChangeRecipient as handleChangeRecipientAction,
 } from './actions'
-import {
-  handleChangeMessage as handleChangeMessageAction,
-} from '../flowersShop/actions'
+import { handleChangeMessage as handleChangeMessageAction } from '../flowersShop/actions'
 
 @connect(
   state => ({
@@ -25,23 +23,17 @@ import {
     handleChangeSender: handleChangeSenderAction,
     handleChangeRecipient: handleChangeRecipientAction,
     handleChangeMessage: handleChangeMessageAction,
-  }
+  },
 )
 export default class ContactDetailsScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Contact Info',
     drawerLabel: 'Contact Information',
-    drawerIcon: ({ tintColor }) => (
-      <MaterialIcons
-        name="message"
-        size={20}
-        color={tintColor}
-      />
-    ),
+    drawerIcon: ({ tintColor }) => <MaterialIcons name="message" size={20} color={tintColor} />,
     ...HeaderStack(navigation),
   })
 
-  renderMessage = (flower, key) => (
+  renderMessage = (flower, key) =>
     <View style={styles.messageView} key={flower._id}>
       <FormLabel labelStyle={styles.label}>{`Message for ${flower.title}`}</FormLabel>
       <FormInput
@@ -54,10 +46,15 @@ export default class ContactDetailsScreen extends Component {
         inputStyle={styles.messageInput}
       />
     </View>
-  )
 
   render() {
-    const { selectedFlowers, navigation, contactDetails, handleChangeSender, handleChangeRecipient } = this.props
+    const {
+      selectedFlowers,
+      navigation,
+      contactDetails,
+      handleChangeSender,
+      handleChangeRecipient,
+    } = this.props
 
     return (
       <TouchableWithoutFeedback style={styles.root} onPress={Keyboard.dismiss}>

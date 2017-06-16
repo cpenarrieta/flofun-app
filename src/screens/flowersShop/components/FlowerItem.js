@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
-import { View, Text, Image, TouchableOpacity, TouchableWithoutFeedback, Animated } from 'react-native'
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  Animated,
+} from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import styles from './styles/FlowerItem'
@@ -23,11 +30,11 @@ export default class FlowerItem extends Component {
     }).start()
   }
 
-  changeQuantity = (change) => {
+  changeQuantity = change => {
     const quantity = this.state.quantity + change
 
     if (quantity === 0) {
-      this.closeQuantitySelector();
+      this.closeQuantitySelector()
     } else {
       Animated.sequence([
         Animated.timing(this._animatedQuantity, {
@@ -47,7 +54,7 @@ export default class FlowerItem extends Component {
     }
   }
 
-  handleSelectFlower = (flower) => {
+  handleSelectFlower = flower => {
     if (this.state.isOpen) {
       this.closeQuantitySelector()
       this.props.selectFlower({ ...flower, quantity: this.state.quantity })
@@ -71,9 +78,7 @@ export default class FlowerItem extends Component {
           outputRange: ['0%', '55%'],
           extrapolate: 'clamp',
         }),
-        transform: [
-          { scale: this._animatedWidth },
-        ],
+        transform: [{ scale: this._animatedWidth }],
       },
     ]
 
@@ -113,31 +118,29 @@ export default class FlowerItem extends Component {
           <Text style={styles.price}>$ {flower.price}</Text>
         </View>
         <Animated.View style={containerStyles}>
-          <TouchableOpacity style={styles.quantitySelectorButton} onPress={() => this.changeQuantity(-1)}>
+          <TouchableOpacity
+            style={styles.quantitySelectorButton}
+            onPress={() => this.changeQuantity(-1)}
+          >
             <Text style={styles.quantitySelectorButtonText}>-</Text>
           </TouchableOpacity>
           <Animated.Text style={quantityStyles}>
             {quantity}
           </Animated.Text>
-          <TouchableOpacity style={styles.quantitySelectorButton} onPress={() => this.changeQuantity(1)}>
+          <TouchableOpacity
+            style={styles.quantitySelectorButton}
+            onPress={() => this.changeQuantity(1)}
+          >
             <Text style={styles.quantitySelectorButtonText}>+</Text>
           </TouchableOpacity>
         </Animated.View>
-        <View style={[styles.addToCart, (this.state.isOpen || selected) ? styles.priceSelected : null]}>
+        <View
+          style={[styles.addToCart, this.state.isOpen || selected ? styles.priceSelected : null]}
+        >
           <TouchableOpacity onPress={() => this.handleSelectFlower(flower)}>
-            {selected ? (
-              <MaterialIcons
-                name="check-circle"
-                size={30}
-                color="#fff"
-              />
-            ) : (
-              <MaterialIcons
-                name="add-shopping-cart"
-                size={30}
-                color="#fff"
-              />
-            )}
+            {selected
+              ? <MaterialIcons name="check-circle" size={30} color="#fff" />
+              : <MaterialIcons name="add-shopping-cart" size={30} color="#fff" />}
           </TouchableOpacity>
         </View>
       </View>
@@ -151,10 +154,7 @@ export default class FlowerItem extends Component {
       <View style={[styles.root, lastElement && styles.lastFlower]}>
         <View style={styles.imageSection}>
           <TouchableWithoutFeedback onPress={this._openInImageGallery}>
-            <Image
-              source={{ uri: flower.image }}
-              style={styles.image}
-            />
+            <Image source={{ uri: flower.image }} style={styles.image} />
           </TouchableWithoutFeedback>
         </View>
         {this.renderQuantitySelector()}

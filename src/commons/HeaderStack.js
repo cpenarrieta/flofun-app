@@ -15,25 +15,17 @@ const HeaderStack = (navigation, { hideBack } = {}) => {
     textAlign: 'center',
   }
 
-  const arrowBack = hideBack ? null : (
-    <TouchableOpacity style={styles.iconBack} onPress={() => navigation.goBack()}>
-      <Ionicons
-        name="ios-arrow-back"
-        size={30}
-        color="#fff"
-      />
-    </TouchableOpacity>
-  )
+  const arrowBack = hideBack
+    ? null
+    : <TouchableOpacity style={styles.iconBack} onPress={() => navigation.goBack()}>
+        <Ionicons name="ios-arrow-back" size={30} color="#fff" />
+      </TouchableOpacity>
 
   const headerLeft = (
     <View style={styles.headerLeft}>
       {arrowBack}
       <TouchableOpacity style={styles.menu} onPress={() => navigation.navigate('DrawerOpen')}>
-        <Entypo
-          name="menu"
-          size={30}
-          color="#fff"
-        />
+        <Entypo name="menu" size={30} color="#fff" />
       </TouchableOpacity>
     </View>
   )

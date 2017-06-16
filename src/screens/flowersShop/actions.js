@@ -10,12 +10,12 @@ export const fetchAvailableFlowers = () => ({
   payload: fetchFlowers(),
 })
 
-export const selectFlower = (flower) => ({
+export const selectFlower = flower => ({
   type: SELECT_FLOWER,
   payload: flower,
 })
 
-export const removeSelectedFlower = (flower) => ({
+export const removeSelectedFlower = flower => ({
   type: REMOVE_FLOWER,
   payload: flower,
 })

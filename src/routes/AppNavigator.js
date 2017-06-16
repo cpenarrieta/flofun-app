@@ -4,11 +4,9 @@ import { connect } from 'react-redux'
 
 import MainNavigator from './MainNavigator'
 
-@connect(
-  state => ({
-    navigation: state.navigation,
-  })
-)
+@connect(state => ({
+  navigation: state.navigation,
+}))
 export default class AppNavigator extends Component {
   render() {
     const navigation = addNavigationHelpers({
