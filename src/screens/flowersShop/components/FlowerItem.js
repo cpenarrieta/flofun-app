@@ -155,22 +155,20 @@ export default class FlowerItem extends Component {
     const { flower, lastElement } = this.props
     const { modalVisible } = this.state
     const modalStyle = {
-      opacity: this.modalOpacity
+      opacity: this.modalOpacity,
     }
 
     return (
       <View style={[styles.root, lastElement && styles.lastFlower]}>
-        <Modal
-          style={styles.modalContainer}
-          visible={modalVisible}
-        >
-          <Animated.View
-            style={[styles.backgroundModal, modalStyle]}
-          />
+        <Modal style={styles.modalContainer} visible={modalVisible}>
+          <Animated.View style={[styles.backgroundModal, modalStyle]} />
           <Swipeable>
             <Animated.View style={[styles.modal, modalStyle]}>
-              <Image source={{ uri: flower.image }} style={{width: 300, height: 230, resizeMode: 'contain'}} />
-              <View style={{padding: 5}}>
+              <Image
+                source={{ uri: flower.image }}
+                style={{ width: 300, height: 230, resizeMode: 'contain' }}
+              />
+              <View style={{ padding: 5 }}>
                 <Text>{flower.description}</Text>
               </View>
             </Animated.View>
@@ -179,8 +177,8 @@ export default class FlowerItem extends Component {
         <View style={styles.imageSection}>
           <TouchableWithoutFeedback
             onPress={() => {
-              Animated.spring(this.modalOpacity, {toValue: 1}).start()
-              this.setState({modalVisible: true})
+              Animated.spring(this.modalOpacity, { toValue: 1 }).start()
+              this.setState({ modalVisible: true })
             }}
           >
             <Image source={{ uri: flower.image }} style={styles.image} />

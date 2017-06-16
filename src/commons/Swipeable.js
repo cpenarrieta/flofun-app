@@ -5,7 +5,7 @@ export default class Swipeable extends Component {
   state = {
     dragging: false,
     offsetTop: 0,
-    offsetLeft: 0
+    offsetLeft: 0,
   }
 
   componentWillMount() {
@@ -14,7 +14,7 @@ export default class Swipeable extends Component {
       onPanResponderGrant: this.handlePanResponderGrant,
       onPanResponderMove: this.handlePanResponderMove,
       onPanResponderRelease: this.handlePanResponderEnd,
-      onPanResponderTerminate: this.handlePanResponderEnd
+      onPanResponderTerminate: this.handlePanResponderEnd,
     })
   }
 
@@ -33,7 +33,7 @@ export default class Swipeable extends Component {
     // Keep track of how far we've moved in total (dx and dy)
     this.setState({
       offsetTop: gestureState.dy,
-      offsetLeft: gestureState.dx
+      offsetLeft: gestureState.dx,
     })
   }
 
@@ -44,7 +44,7 @@ export default class Swipeable extends Component {
     this.setState({
       dragging: false,
       offsetTop: 0,
-      offsetLeft: 0
+      offsetLeft: 0,
     })
   }
 
@@ -55,7 +55,7 @@ export default class Swipeable extends Component {
     // Update style with the state of the drag thus far
     const style = {
       top: offsetTop,
-      left: offsetLeft
+      left: offsetLeft,
     }
 
     return (
@@ -71,6 +71,5 @@ export default class Swipeable extends Component {
 }
 
 const styles = StyleSheet.create({
-  box: {
-  }
+  box: {},
 })

@@ -46,17 +46,14 @@ export default class GrowingTextInput extends Component {
           this._ref = c
         }}
         multiline
-        underlineColorAndroid='rgba(0, 0, 0, 0)'
+        underlineColorAndroid="rgba(0, 0, 0, 0)"
         onContentSizeChange={this._onChangeContentSize}
         {...this.props}
         onChange={event => {
           this._onChangeContentSize(event)
           this.props.onChange && this.props.onChange(event)
         }}
-        style={[
-          this.props.style,
-          { height: Math.max(this.props.minHeight, this.state.height) },
-        ]}
+        style={[this.props.style, { height: Math.max(this.props.minHeight, this.state.height) }]}
       />
     )
   }

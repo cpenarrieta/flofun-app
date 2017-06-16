@@ -105,8 +105,8 @@ const styles = EStyleSheet.create({
   },
   backgroundModal: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.5)'
-  }
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
 })
 
 export default styles
