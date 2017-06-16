@@ -30,11 +30,41 @@ export default class FlowerItem extends Component {
     }
   }
 
+  onMove = ({ dx, dy }) => {
+    const newOpacityX = calculateOpacity(dx)
+    const newOpacityY = calculateOpacity(dy)
+    this.modalOpacity.setValue(Math.min(newOpacityX, newOpacityY))
+  }
+
+  onEnd = ({ dx, dy }) => {
+    const newOpacityX = calculateOpacity(dx)
+    const newOpacityY = calculateOpacity(dy)
+    if (Math.min(newOpacityX, newOpacityY) < 0.1) {
+      this.setState({ modalVisible: false })
+      this.modalOpacity.setValue(0)
+    } else {
+      Animated.spring(this.modalOpacity, { toValue: 1 }).start()
+      this.modalOpacity.setValue(1)
+    }
+  }
+
   closeQuantitySelector = () => {
     this.setState({ isOpen: false })
     Animated.spring(this._animatedWidth, {
       toValue: 0,
     }).start()
+  }
+
+  handleSelectFlower = flower => {
+    if (this.state.isOpen) {
+      this.closeQuantitySelector()
+      this.props.selectFlower({ ...flower, quantity: this.state.quantity })
+    } else {
+      this.setState({ isOpen: true })
+      Animated.spring(this._animatedWidth, {
+        toValue: 1,
+      }).start()
+    }
   }
 
   changeQuantity = change => {
@@ -58,36 +88,6 @@ export default class FlowerItem extends Component {
         }),
       ]).start()
       this.setState({ quantity })
-    }
-  }
-
-  onMove = ({ dx, dy }) => {
-    const newOpacityX = calculateOpacity(dx)
-    const newOpacityY = calculateOpacity(dy)
-    this.modalOpacity.setValue(Math.min(newOpacityX, newOpacityY))
-  }
-
-  onEnd = ({ dx, dy }) => {
-    const newOpacityX = calculateOpacity(dx)
-    const newOpacityY = calculateOpacity(dy)
-    if (Math.min(newOpacityX, newOpacityY) < 0.1) {
-      this.setState({ modalVisible: false })
-      this.modalOpacity.setValue(0)
-    } else {
-      Animated.spring(this.modalOpacity, { toValue: 1 }).start()
-      this.modalOpacity.setValue(1)
-    }
-  }
-
-  handleSelectFlower = flower => {
-    if (this.state.isOpen) {
-      this.closeQuantitySelector()
-      this.props.selectFlower({ ...flower, quantity: this.state.quantity })
-    } else {
-      this.setState({ isOpen: true })
-      Animated.spring(this._animatedWidth, {
-        toValue: 1,
-      }).start()
     }
   }
 
