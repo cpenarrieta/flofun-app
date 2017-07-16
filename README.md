@@ -5,7 +5,7 @@ React native app using `expo`, `react-navigation`, `jest`, `redux`, `react-nativ
 <img src="/assets/selectFlowers.gif?raw=true">
 
 ### SMS code login
-![sms](https://d2ppvlu71ri8gs.cloudfront.net/items/1o462P0d1b3k16243v1M/sms.gif)
+![sms](https://d26dzxoao6i3hh.cloudfront.net/items/1o462P0d1b3k16243v1M/sms.gif)
 
 ### Address Lookup using Google Maps reverse geocoding
-![googlemap](https://d2ppvlu71ri8gs.cloudfront.net/items/2V1S2C0p040M3F270k2G/directions.gif)
+![googlemap](https://d26dzxoao6i3hh.cloudfront.net/items/2V1S2C0p040M3F270k2G/directions.gif)
